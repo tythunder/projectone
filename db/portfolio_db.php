@@ -106,7 +106,7 @@ var_dump($portfolio_by_user_id);
 echo "</pre>";
 echo "<hr />";
 
-$portfolios->set_portfolio_id(1);
+$portfolios->set_portfolio_id(2);
 $get_collaborators = $portfolios->get_collaborators_by_portfolio_id();
 $portfolios->show_error();
 
