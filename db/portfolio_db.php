@@ -81,6 +81,7 @@ class Portfolio_db{
 
 }
 
+/*
 $portfolios = new Portfolio_db();
 $all_portfolios = $portfolios->get_all_portfolios();
 echo "<pre>";
@@ -114,5 +115,6 @@ echo "<pre>";
 var_dump($get_collaborators);
 echo "</pre>";
 echo "<hr />";
+*/
 
 ?>

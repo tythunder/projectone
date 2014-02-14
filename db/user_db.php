@@ -46,6 +46,7 @@ class User_db{
 
 }
 
+/*
 $users = new User_db();
 $all_users = $users->get_all_users();
 echo "<pre>";
@@ -61,5 +62,6 @@ echo "<pre>";
 var_dump($set_user);
 echo "</pre>";
 echo "<hr />";
+*/
 
 ?>

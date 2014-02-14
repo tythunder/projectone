@@ -68,6 +68,7 @@ class Image_db{
 
 }
 
+/*
 $image = new Image_db();
 $all_images = $image->get_all_images();
 echo "<pre>";
@@ -92,5 +93,6 @@ echo "<pre>";
 var_dump($images_by_portfolio_id);
 echo "</pre>";
 echo "<hr />";
+*/
 
 ?>
