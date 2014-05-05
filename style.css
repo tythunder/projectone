@@ -1,0 +1,283 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,200,100);
+@font-face {
+    font-family: 'OstrichSansBlack';
+    src: url('fonts/ostrich-black.eot');
+    src: url('fonts/ostrich-black.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ostrich-black.woff') format('woff'),
+         url('fonts/ostrich-black.ttf') format('truetype'),
+         url('fonts/ostrich-black.svg#OstrichSansBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+	font-family: 'OstrichSansLight';
+    src: url('fonts/ostrich-light.eot');
+    src: url('fonts/ostrich-light.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ostrich-light.woff') format('woff'),
+         url('fonts/ostrich-light.ttf') format('truetype'),
+         url('fonts/ostrich-light.svg#OstrichSansLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-family: 'OstrichSansInlineRegular';
+    src: url('fonts/ostrich-sans-inline-regular.eot');
+    src: url('fonts/ostrich-sans-inline-regular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/ostrich-sans-inline-regular.woff') format('woff'),
+         url('fonts/ostrich-sans-inline-regular.ttf') format('truetype'),
+         url('fonts/ostrich-sans-inline-regular.svg#OstrichSansInlineRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@charset "UTF-8";
+/* CSS Document */
+body{
+	width: 100%;
+	height: 100%;
+	background:url(img/bg.jpg)  no-repeat center center fixed;
+  	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+	font-family: "Raleway", sans-serif;
+	color: #33cccc;
+	font-size:0.9em;
+}
+a{
+	text-decoration:none;
+}
+a:link {color:white;}      /* unvisited link */
+a:visited {color:white;}  /* visited link */
+a:hover {color:#ccc;}  /* mouse over link */
+a:active {color:#ccc;}  /* selected link */
+
+#wrapper{
+	width: 960px;
+	margin: 0 auto;
+/*	background-color: #ccc;
+*/	
+}
+#index_container{
+	margin-top: 15%;
+	text-align: center;
+}
+.title{
+	font-family: "OstrichSansBlack", sans serif;
+	letter-spacing: 0.1em;
+	font-size: 3em;
+}
+.form_label{
+	text-align:end;
+	display: inline-block;
+	width: 100px;
+}
+#login_form{
+/*	background-color: blue;
+*/	width: 260px;
+	margin: 0 auto;
+	text-align: left;
+}
+#login_form h3{
+	text-align: center;
+	font-weight: normal;
+}
+#login_form input[type="text"],input[type="password"] {
+	font-family: "Raleway", sans-serif;
+	font-size: 0.8em;
+	font-weight: lighter;
+	width: 250px;
+	height: 30px;
+	background-color: rgba(204, 204, 204, 0.5);
+	color: #fff;
+	border: none;
+	-webkit-border-top-left-radius:10px;
+	-moz-border-radius-topleft:10px;
+	border-top-left-radius:10px;
+	-webkit-border-top-right-radius:10px;
+	-moz-border-radius-topright:10px;
+	border-top-right-radius:10px;
+	-webkit-border-bottom-right-radius:10px;
+	-moz-border-radius-bottomright:10px;
+	border-bottom-right-radius:10px;
+	-webkit-border-bottom-left-radius:10px;
+	-moz-border-radius-bottomleft:10px;
+	border-bottom-left-radius:10px;
+	text-decoration:none;
+	text-align:left;
+	display: inline-block;
+	margin: 5px auto;
+	padding-left: 10px;
+}
+.form_button{
+	font-family: "Raleway", sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	width: 260px;
+	height: 30px;
+	background-color: #003333;
+	-webkit-filter: grayscale(0%);
+	color: #33cccc;
+	border: none;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-decoration:none;
+	text-align:center;
+	display: inline-block;
+	margin: 5px auto;
+}
+.form_button:hover {
+	cursor:pointer;	
+}.form_button:active {
+	position:relative;
+	top:1px;
+	background-color: #003333;
+	-webkit-filter: grayscale(100%);
+	cursor:pointer;	
+}
+#admin_container, #port_container{
+	width: 80%;
+	margin: 0 auto;
+}
+.page_titles{
+	color: #ff6633;
+	margin: 0;
+	max-width: 100px;
+}
+#port_options{
+	float: right;
+}
+.greeting{
+	color: #fff;
+	font-weight: lighter;
+}
+.general_btns{
+	font-family: "Raleway", sans-serif;
+	font-size: 0.65em;
+	font-weight: bold;
+	width: 60px;
+	height: 20px;
+	background-color: #fff;
+	-webkit-filter: grayscale(0%);
+	color: #ff6633;
+	border: none;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+	text-decoration:none;
+	text-align:center;
+	display: inline-block;
+	margin: 5px auto;	
+}
+.general_btns:hover {
+	cursor:pointer;	
+}
+.general_btns:active {
+	position:relative;
+	top:1px;
+	background-color: #fff;
+	-webkit-filter: grayscale(100%);
+	cursor:pointer;	
+}
+#p_thumb_container, #items_thumb_container{
+	margin-top:10%;
+}
+.display_p_thumb, .display_items{
+	display:inline-block;
+	margin: 10px;
+	max-width:230px;
+}
+.display_p_thumb div, .i_thumb{
+	border-radius: 5px;
+}
+.display_p_thumb input, .item_options, #upload_btn{
+	float: right;
+}
+.p_thumb, .i_thumb{
+	background-color:#B5B5B5;
+	width: 230px; 
+	height: 155px
+}
+#upload_box{
+	float: right;
+	display: block;
+}
+#port_container{
+}
+.upload_form{
+
+}
+.upload_form input[type="text"]{
+	font-family: "Raleway", sans-serif;
+	font-size: 0.8em;
+	font-weight: lighter;
+	width: 150px;
+	height: 20px;
+	background-color: rgba(204, 204, 204, 0.5);
+	color: #fff;
+	border: none;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+	text-decoration:none;
+	text-align:left;
+	display: inline-block;
+	margin: 5px auto;
+	padding-left: 10px;
+}
+#upload_form_btn{
+	font-family: "Raleway", sans-serif;
+	font-size: 0.65em;
+	font-weight: bold;
+	width: 60px;
+	height: 20px;
+	background-color: #fff;
+	-webkit-filter: grayscale(0%);
+	color: #ff6633;
+	border: none;
+	-webkit-border-top-left-radius:5px;
+	-moz-border-radius-topleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-top-right-radius:5px;
+	-moz-border-radius-topright:5px;
+	border-top-right-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-bottom-left-radius:5px;
+	text-decoration:none;
+	text-align:center;
+	display: inline-block;
+	margin: 5px auto;	
+}
