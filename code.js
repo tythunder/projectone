@@ -87,4 +87,17 @@ $(document).ready(function(event) {
         });
     });
 
+    //code for edit
+    $(".editcontainer").css({
+        width: window.innerWidth,
+        height: window.innerHeight
+    });
+
+    $(window).resize(function() {
+        $(".editcontainer").css({
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
+    });
+
 });
