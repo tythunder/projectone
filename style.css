@@ -190,7 +190,6 @@ body {
 .uploadaction {
 	position: absolute;
 	bottom: 0;
-<<<<<<< HEAD
 }
 
 .uploadaccept {
@@ -200,8 +199,6 @@ body {
 .uploadcancel {
 	float: right;
 }
-=======
-<<<<<<< HEAD
 }
 
 /* DELETE PAGE STYLES*/
@@ -370,7 +367,4 @@ body {
     background: rgba(0,0,0,0.5);
     transition: all 0.3s;
 }
-=======
 }
->>>>>>> FETCH_HEAD
->>>>>>> b510c4b19dae2f352afa7ad60535d6a4abc501d2
