@@ -190,6 +190,7 @@ body {
 .uploadaction {
 	position: absolute;
 	bottom: 0;
+<<<<<<< HEAD
 }
 
 /* DELETE PAGE STYLES*/
@@ -358,3 +359,6 @@ body {
     background: rgba(0,0,0,0.5);
     transition: all 0.3s;
 }
+=======
+}
+>>>>>>> FETCH_HEAD
