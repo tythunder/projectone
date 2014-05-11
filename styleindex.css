@@ -1,0 +1,260 @@
+html {
+	background-color: #0AC2D2;
+}
+
+body {
+	background-color: #0AC2D2;
+}
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    opacity: 0;
+    background: rgba(0,0,0,0.5);
+    transition: all 0.3s;
+}
+
+.showoverlay {
+	opacity: 1;
+    visibility: visible;
+}
+
+.mainloginwrap {
+	position: absolute;
+	width: 440px;
+	left: 50%;
+	top: 50%;
+	margin-left: -220px;
+	margin-top: -341px;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid rgba(255,255,255, 0.5);
+	transition: all 0.3s;
+}
+
+.loginwrap {
+	width: 420px;
+	margin: auto;
+	background: rgba(0,0,0,0.1);
+}
+
+.loginwrap img {
+	display: block;
+    margin: 10px;
+    padding-top: 30px;
+}
+
+.loginwrap h1 {
+	font-family: "brandon-grotesque",sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #FFFFFF;
+	text-align: center;
+	margin: 0;
+}
+
+.loginform {
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.loginform input::-webkit-input-placeholder {
+    color:    #FFFFFF;
+}
+.loginform input:-moz-placeholder {
+    color:    #FFFFFF;
+}
+.loginform input::-moz-placeholder {
+    color:    #FFFFFF;
+}
+.loginform input:-ms-input-placeholder {
+    color:    #FFFFFF;
+}
+
+.loginform input:focus {
+	border: 1px solid #0AC2D2;
+	box-shadow: 0;
+	outline: none;
+	background: rgba(255,255,255,0.2);
+}
+
+.loginform input{
+	width: 400px;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #FFFFFF;
+	font-family: "brandon-grotesque",sans-serif;
+	font-style: normal;
+	font-weight: 100;
+	font-size: 18px;
+	color: #FFFFFF;
+	background-color: transparent;
+	display: block;
+	margin-top: 5px;
+}
+
+.loginform input.loginsubmit {
+	font-family: "brandon-grotesque",sans-serif;
+	font-style: normal;
+	font-weight: 100;
+	font-size: 18px;
+	background: rgba(255,255,255,0.2);
+	cursor: pointer;
+}
+
+.registerwrap {
+	width: 420px;
+	margin: auto;
+	background: rgba(0,0,0,0.1);
+	cursor: pointer;
+	margin: 10px
+}
+
+.registerwrap:hover {
+	background: rgba(255,255,255,0.2);
+}
+
+.registerwrap p {
+	font-family: "brandon-grotesque",sans-serif;
+	font-style: normal;
+	font-weight: 100;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-align: center;
+	margin: 0;
+}
+
+.regformwrap {
+	width: 440px;
+	background-color: #FF404F;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -220px;
+    margin-top: -358.5px;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    -ms-transform: scale(0.8);
+	-webkit-transform: scale(0.8);
+	transform: scale(0.8);
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid rgba(255,255,255, 0.5);
+	transition: all 0.3s;
+}
+
+.regwrap {
+	width: 420px;
+	margin: auto;
+	background: rgba(0,0,0,0.1);
+}
+
+.regform {
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.showregisterwrap {
+	opacity: 1;
+	visibility: visible;
+	-ms-transform: scale(1);
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.mainwrapscale {
+	-ms-transform: scale(0.8);
+	-webkit-transform: scale(0.8);
+	transform: scale(0.8);
+}
+
+.regform input::-webkit-input-placeholder {
+    color:    #FFFFFF;
+}
+.regform input:-moz-placeholder {
+    color:    #FFFFFF;
+}
+.regform input::-moz-placeholder {
+    color:    #FFFFFF;
+}
+.regform input:-ms-input-placeholder {
+    color:    #FFFFFF;
+}
+
+.regform input:focus {
+	border: 1px solid #FF404F;
+	box-shadow: 0;
+	outline: none;
+	background: rgba(255,255,255,0.2);
+}
+
+.regform input{
+	width: 400px;
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #FFFFFF;
+	font-family: "brandon-grotesque",sans-serif;
+	font-style: normal;
+	font-weight: 100;
+	font-size: 18px;
+	color: #FFFFFF;
+	background-color: transparent;
+	display: block;
+	margin-top: 5px;
+}
+
+.regform input.regsubmit {
+	font-family: "brandon-grotesque",sans-serif;
+	font-style: normal;
+	font-weight: 100;
+	font-size: 18px;
+	background: rgba(255,255,255,0.2);
+	cursor: pointer;
+}
+
+.regwrap img {
+	display: block;
+    margin: 10px;
+    padding-top: 30px;
+}
+
+.regwrap h1 {
+	font-family: "brandon-grotesque",sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	color: #FFFFFF;
+	text-align: center;
+	margin: 0;
+}
+
+.cancelwrap {
+	width: 420px;
+	margin: auto;
+	background: rgba(0,0,0,0.1);
+	cursor: pointer;
+	margin: 10px
+}
+
+.cancelwrap:hover {
+	background: rgba(255,255,255,0.2);
+}
+
+.cancelwrap p {
+	font-family: "brandon-grotesque",sans-serif;
+	font-style: normal;
+	font-weight: 100;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-align: center;
+	margin: 0;
+}
