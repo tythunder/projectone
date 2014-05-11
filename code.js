@@ -33,7 +33,6 @@ $(document).ready(function(event) {
         });
     });
 
-
     // this opens modal for image upload
     $(".createimageedit").click(function(event) {
         $(".createcontainer").css("-webkit-transform", "scale(0.8)");
