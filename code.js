@@ -33,19 +33,26 @@ $(document).ready(function(event) {
         });
     });
 
+
+    // this opens modal for image upload
     $(".createimageedit").click(function(event) {
         $(".createcontainer").css("-webkit-transform", "scale(0.8)");
         $(".createoverlay").addClass('showcreateoverlay');
+        $(".uploadmodal").addClass('showuploadmodal');
     });
 
+    // this opens modal for the description
     $(".createdesc").click(function(event) {
         $(".createcontainer").css("-webkit-transform", "scale(0.8)");
         $(".createoverlay").addClass('showcreateoverlay');
     });
 
+
+    // this is to temporary close modals
     $(".createoverlay").click(function(event) {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
         $(".createoverlay").removeClass('showcreateoverlay');
+        $(".uploadmodal").removeClass('showuploadmodal');
     });
 
     $(".createimage").hover(function() {
