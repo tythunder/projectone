@@ -190,6 +190,7 @@ body {
 .uploadaction {
 	position: absolute;
 	bottom: 0;
+	margin: 10px;
 }
 
 .uploadaccept {
@@ -197,6 +198,56 @@ body {
 }
 
 .uploadcancel {
+	float: right;
+}
+
+.descmodal {
+	width: 500px;
+	height: 500px;
+	background-color: #FF404F;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -250px;
+    margin-top: -250px;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    -ms-transform: scale(0.8);
+	-webkit-transform: scale(0.8);
+	transform: scale(0.8);
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid rgba(255,255,255, 0.5);
+	transition: all 0.3s;
+}
+
+.showdescmodal {
+	opacity: 1;
+	visibility: visible;
+	-ms-transform: scale(1);
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+
+.descwrap {
+	width: 480px;
+	margin: auto;
+	background: rgba(0,0,0,0.1);
+}
+
+.descaction {
+	position: absolute;
+	bottom: 0;
+	margin: 10px;
+}
+
+.descaccept {
+	float: left;
+}
+
+.desccancel {
 	float: right;
 }
 

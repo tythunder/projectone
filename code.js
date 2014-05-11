@@ -41,15 +41,7 @@ $(document).ready(function(event) {
         $(".uploadmodal").addClass('showuploadmodal');
     });
 
-    // this opens modal for the description
-    $(".createdesc").click(function(event) {
-        $(".createcontainer").css("-webkit-transform", "scale(0.8)");
-        $(".createoverlay").addClass('showcreateoverlay');
-    });
-
-
-    // this is to temporary close modals
-
+    // this is to close upload modal
     $(".uploadaccept").click(function(event) {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
         $(".createoverlay").removeClass('showcreateoverlay');
@@ -60,6 +52,26 @@ $(document).ready(function(event) {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
         $(".createoverlay").removeClass('showcreateoverlay');
         $(".uploadmodal").removeClass('showuploadmodal');
+    });
+
+    // this opens modal for the description
+    $(".createdesc").click(function(event) {
+        $(".createcontainer").css("-webkit-transform", "scale(0.8)");
+        $(".createoverlay").addClass('showcreateoverlay');
+        $(".descmodal").addClass('showdescmodal');
+    });
+
+    // this is to close upload modal
+    $(".descaccept").click(function(event) {
+        $(".createcontainer").css("-webkit-transform", "scale(1)");
+        $(".createoverlay").removeClass('showcreateoverlay');
+        $(".descmodal").removeClass('showdescmodal');
+    });    
+
+    $(".desccancel").click(function(event) {
+        $(".createcontainer").css("-webkit-transform", "scale(1)");
+        $(".createoverlay").removeClass('showcreateoverlay');
+        $(".descmodal").removeClass('showdescmodal');
     });
 
     $(".createimage").hover(function() {
