@@ -74,4 +74,17 @@ $(document).ready(function(event) {
         $(this).children().children(".descimg").css("opacity", 0.5);
     });
 
+    //code for create
+    $(".deletecontainer").css({
+        width: window.innerWidth,
+        height: window.innerHeight
+    });
+
+    $(window).resize(function() {
+        $(".deletecontainer").css({
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
+    });
+
 });
