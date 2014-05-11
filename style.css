@@ -191,3 +191,11 @@ body {
 	position: absolute;
 	bottom: 0;
 }
+
+.uploadaccept {
+	float: left;
+}
+
+.uploadcancel {
+	float: right;
+}

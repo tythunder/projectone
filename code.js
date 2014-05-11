@@ -49,7 +49,14 @@ $(document).ready(function(event) {
 
 
     // this is to temporary close modals
-    $(".createoverlay").click(function(event) {
+
+    $(".uploadaccept").click(function(event) {
+        $(".createcontainer").css("-webkit-transform", "scale(1)");
+        $(".createoverlay").removeClass('showcreateoverlay');
+        $(".uploadmodal").removeClass('showuploadmodal');
+    });
+
+    $(".uploadcancel").click(function(event) {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
         $(".createoverlay").removeClass('showcreateoverlay');
         $(".uploadmodal").removeClass('showuploadmodal');
