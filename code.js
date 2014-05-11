@@ -74,6 +74,7 @@ $(document).ready(function(event) {
         $(".descmodal").removeClass('showdescmodal');
     });
 
+    // code for create hovers
     $(".createimage").hover(function() {
         $(this).children().children(".pictureimg").css("opacity", 1.0);
     }, function() {
