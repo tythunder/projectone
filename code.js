@@ -74,7 +74,7 @@ $(document).ready(function(event) {
         $(this).children().children(".descimg").css("opacity", 0.5);
     });
 
-    //code for create
+    //code for delete
     $(".deletecontainer").css({
         width: window.innerWidth,
         height: window.innerHeight
