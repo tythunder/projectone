@@ -186,3 +186,8 @@ body {
 	margin: auto;
 	background: rgba(0,0,0,0.1);
 }
+
+.uploadaction {
+	position: absolute;
+	bottom: 0;
+}
