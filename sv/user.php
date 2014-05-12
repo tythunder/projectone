@@ -22,6 +22,13 @@ class User{
 
 		return $user;
 	}
+	function get_userid($username, $password){
+		$this->userDB->set_user_name($username);
+		$this->userDB->set_password($password);
+		$id = $this->userDB->get_user_id_by_name_pass();
+		
+		return $id;
+	}
 }
 
 /*

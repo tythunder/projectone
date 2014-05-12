@@ -250,6 +250,10 @@ body {
 .desccancel {
 	float: right;
 }
+#portfolio_form label, #upload_form label{
+	display:inline-block;
+	width: 100px;
+}
 
 /* DELETE PAGE STYLES*/
 

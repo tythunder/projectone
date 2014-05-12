@@ -5,6 +5,8 @@ class User_db{
 
 	private $dbcon;
 	private $user_id;
+	private $username;
+	private $password;
 	private $error;
 
 	function __construct(){
@@ -43,7 +45,22 @@ class User_db{
 	function show_error(){
 		echo $this->error;
 	}
-
+	function set_user_name($name){
+			$this->username = $name;
+	}
+	function set_password($pass){
+			$this->password= $pass;
+	}
+	function get_user_id_by_name_pass(){
+		$query = "SELECT user.id FROM user WHERE username = '". $this->username."' AND password ='".$this->password."'";
+		$result = mysqli_query($this->dbcon, $query);
+		
+		$id = NULL;
+		while($row = mysqli_fetch_array($result)){
+			$id = $row["id"];
+		}
+		return $id;
+	}
 }
 
 /*

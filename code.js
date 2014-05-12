@@ -45,6 +45,7 @@ $(document).ready(function(event) {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
         $(".createoverlay").removeClass('showcreateoverlay');
         $(".uploadmodal").removeClass('showuploadmodal');
+		$(".uploadmodal").load("modal_create");
     });
 
     $(".uploadcancel").click(function(event) {

@@ -9,6 +9,14 @@
 	<script type="text/javascript" src="//use.typekit.net/doa3oio.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<title>Project One - edit</title>
+    <script>
+	$(document).ready(function(e){
+		$.get("sv/user_client.php", {user:true, username:$("#username").val()}, function(data){
+			var j_data = $.parseJSON(data);
+			console.log(j_data);
+		});
+	});
+	</script>
 </head>
 
 <body>

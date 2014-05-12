@@ -107,7 +107,14 @@
 
 	<div class="uploadmodal">
 		<div class="uploadwrap">
-			this is upload
+        	<h2> Create Portfolio</h2>
+            <form id="portfolio_form" action="add_portfolio.php" method="post">
+            <input type='hidden' name='add' value='addNew' />
+             <label>Title:</label><input type="text" name="imgTitle" id="imgTitle" /><br>
+             <label>Description:</label><input type="text" name="imgDesc" id="imgDesc" /><br>
+             <label>Cover image:</label><input type="file" name="imgLink" id="imgLink" /> <br>
+             <input type="button" id="upload-submit" value="upload" />
+			</form>	
 		</div>
 		<div class="uploadaction">
 			<div class="uploadaccept">
