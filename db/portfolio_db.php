@@ -81,40 +81,4 @@ class Portfolio_db{
 
 }
 
-/*
-$portfolios = new Portfolio_db();
-$all_portfolios = $portfolios->get_all_portfolios();
-echo "<pre>";
-var_dump($all_portfolios);
-echo "</pre>";
-echo "<hr />";
-
-$portfolios->set_portfolio_id(2);
-$set_portfolio = $portfolios->get_portfolio_by_id();
-$portfolios->show_error();
-
-echo "<pre>";
-var_dump($set_portfolio);
-echo "</pre>";
-echo "<hr />";
-
-$portfolios->set_user_id(1);
-$portfolio_by_user_id = $portfolios->get_portfolios_by_user_id();
-$portfolios->show_error();
-
-echo "<pre>";
-var_dump($portfolio_by_user_id);
-echo "</pre>";
-echo "<hr />";
-
-$portfolios->set_portfolio_id(2);
-$get_collaborators = $portfolios->get_collaborators_by_portfolio_id();
-$portfolios->show_error();
-
-echo "<pre>";
-var_dump($get_collaborators);
-echo "</pre>";
-echo "<hr />";
-*/
-
 ?>

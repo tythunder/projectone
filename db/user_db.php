@@ -63,22 +63,4 @@ class User_db{
 	}
 }
 
-/*
-$users = new User_db();
-$all_users = $users->get_all_users();
-echo "<pre>";
-var_dump($all_users);
-echo "</pre>";
-echo "<hr />";
-
-$users->set_user_id(2);
-$set_user = $users->get_user_by_id();
-$users->show_error();
-
-echo "<pre>";
-var_dump($set_user);
-echo "</pre>";
-echo "<hr />";
-*/
-
 ?>

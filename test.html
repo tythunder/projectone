@@ -15,7 +15,7 @@
 			var username = $("#username").val();
 			var password = $("#password").val();
 			console.log(username, password);
-			$.get("sv/user_client.php", {user:true, user_id:1}, function(data){
+			$.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
 				var j_data = $.parseJSON(data);
 				console.log(j_data);
 			});
@@ -27,7 +27,7 @@
 
 <body>
 <input type="text" id="username" />
-<input type="test" id="password" />
+<input type="text" id="password" />
 <input type="button" value="register" id="reg_but" />
 </body>
 </html>

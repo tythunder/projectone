@@ -31,12 +31,4 @@ class User{
 	}
 }
 
-/*
-$user = new User();
-$userinfo = $user->get_user_info(1);
-echo "<pre>";
-var_dump($userinfo);
-echo "</pre>";
-*/
-
 ?>

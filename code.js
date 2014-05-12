@@ -1,23 +1,23 @@
-$(document).ready(function(event) {
+$(document).ready(function() {
 
     //code for index
-    $(".registerwrap").click(function(event) {
-        $(".overlay").addClass('showoverlay');
-        $(".regformwrap").addClass('showregisterwrap');
-        $(".mainloginwrap").addClass('mainwrapscale');
+    $(".registerwrap").click(function() {
+        $(".overlay").addClass("showoverlay");
+        $(".regformwrap").addClass("showregisterwrap");
+        $(".mainloginwrap").addClass("mainwrapscale");
     });
 
-    $(".cancelwrap").click(function(event) {
-        $(".overlay").removeClass('showoverlay');
-        $(".regformwrap").removeClass('showregisterwrap');
-        $(".mainloginwrap").removeClass('mainwrapscale');
+    $(".cancelwrap").click(function() {
+        $(".overlay").removeClass("showoverlay");
+        $(".regformwrap").removeClass("showregisterwrap");
+        $(".mainloginwrap").removeClass("mainwrapscale");
     });
 
     //code for menu
     $(".menuicon").hover(function() {
-        $(this).children('.menuitem').stop().animate({width:200}, 500, 'easeOutExpo');
+        $(this).children(".menuitem").stop().animate({width:200}, 500, "easeOutExpo");
     }, function() {
-        $(this).children('.menuitem').stop().animate({width:0}, 500, 'easeOutExpo');
+        $(this).children(".menuitem").stop().animate({width:0}, 500, "easeOutExpo");
     });
 
     //code for create
@@ -34,44 +34,44 @@ $(document).ready(function(event) {
     });
 
     // this opens modal for image upload
-    $(".createimageedit").click(function(event) {
+    $(".createimageedit").click(function() {
         $(".createcontainer").css("-webkit-transform", "scale(0.8)");
-        $(".createoverlay").addClass('showcreateoverlay');
-        $(".uploadmodal").addClass('showuploadmodal');
+        $(".createoverlay").addClass("showcreateoverlay");
+        $(".uploadmodal").addClass("showuploadmodal");
     });
 
     // this is to close upload modal
-    $(".uploadaccept").click(function(event) {
+    $(".uploadaccept").click(function() {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass('showcreateoverlay');
-        $(".uploadmodal").removeClass('showuploadmodal');
+        $(".createoverlay").removeClass("showcreateoverlay");
+        $(".uploadmodal").removeClass("showuploadmodal");
 		$(".uploadmodal").load("modal_create");
     });
 
-    $(".uploadcancel").click(function(event) {
+    $(".uploadcancel").click(function() {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass('showcreateoverlay');
-        $(".uploadmodal").removeClass('showuploadmodal');
+        $(".createoverlay").removeClass("showcreateoverlay");
+        $(".uploadmodal").removeClass("showuploadmodal");
     });
 
     // this opens modal for the description
-    $(".createdesc").click(function(event) {
+    $(".createdesc").click(function() {
         $(".createcontainer").css("-webkit-transform", "scale(0.8)");
-        $(".createoverlay").addClass('showcreateoverlay');
-        $(".descmodal").addClass('showdescmodal');
+        $(".createoverlay").addClass("showcreateoverlay");
+        $(".descmodal").addClass("showdescmodal");
     });
 
     // this is to close upload modal
-    $(".descaccept").click(function(event) {
+    $(".descaccept").click(function() {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass('showcreateoverlay');
-        $(".descmodal").removeClass('showdescmodal');
+        $(".createoverlay").removeClass("showcreateoverlay");
+        $(".descmodal").removeClass("showdescmodal");
     });    
 
-    $(".desccancel").click(function(event) {
+    $(".desccancel").click(function() {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass('showcreateoverlay');
-        $(".descmodal").removeClass('showdescmodal');
+        $(".createoverlay").removeClass("showcreateoverlay");
+        $(".descmodal").removeClass("showdescmodal");
     });
 
     // code for create hovers
@@ -110,6 +110,17 @@ $(document).ready(function(event) {
         $(".editcontainer").css({
             width: window.innerWidth,
             height: window.innerHeight
+        });
+    });
+
+    //getting user
+    $("#loginsubmit").click(function() {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        console.log(username, password);
+        $.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
+            var j_data = $.parseJSON(data);
+            console.log(j_data);
         });
     });
 
