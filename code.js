@@ -130,11 +130,11 @@ $(document).ready(function() {
     $("#loginsubmit").click(function() {
         var username = $("#username").val();
         var password = $("#password").val();
-        $.get("sv/sessions.php", {session:true, username:username, password:password}, function(data){
+        $.post("sv/sessions.php", {session_data:true}, function(data){
             var j_data = $.parseJSON(data);
             console.log(j_data);
         });
-
+        
         $.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
             var j_data = $.parseJSON(data);
             console.log(j_data);
