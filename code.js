@@ -114,14 +114,21 @@ $(document).ready(function() {
     });
 
     //getting user
+
     $("#loginsubmit").click(function() {
         var username = $("#username").val();
         var password = $("#password").val();
-        console.log(username, password);
+        $.post("sv/sessions.php", {session_data:true}, function(data){
+            var j_data = $.parseJSON(data);
+            console.log(j_data);
+        });
+
         $.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
             var j_data = $.parseJSON(data);
             console.log(j_data);
         });
+
+
     });
 
 });
