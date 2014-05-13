@@ -130,7 +130,7 @@ $(document).ready(function() {
     $("#loginsubmit").click(function() {
         var username = $("#username").val();
         var password = $("#password").val();
-        $.post("sv/sessions.php", {session_data:true}, function(data){
+        $.get("sv/sessions.php", {session:true, username:username, password:password}, function(data){
             var j_data = $.parseJSON(data);
             console.log(j_data);
         });
@@ -139,8 +139,6 @@ $(document).ready(function() {
             var j_data = $.parseJSON(data);
             console.log(j_data);
         });
-
-
     });
 
 });
