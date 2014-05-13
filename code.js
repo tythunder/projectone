@@ -113,6 +113,18 @@ $(document).ready(function() {
         });
     });
 
+    //code for admin
+    $(".admincontainer").css({
+        width: window.innerWidth,
+        height: window.innerHeight
+    });
+    $(window).resize(function() {
+        $(".admincontainer").css({
+            width: window.innerWidth,
+            height: window.innerHeight
+        });
+    });
+
     //getting user
 
     $("#loginsubmit").click(function() {
