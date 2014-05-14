@@ -12,9 +12,9 @@
 </head>
 
 <body>
-
 	<div class="admincontainer">
 		<div class="admindescwrap">
+        <?php include("sv/logged.php"); ?>
 			<div class="admindesc">
 				<img class="descimg" src="images/icons/desc.png" />
 			</div>

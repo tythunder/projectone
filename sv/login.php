@@ -2,20 +2,20 @@
 include("../db/user_db.php");
  
 session_start();
-$uName = $_POST['name'];
-$pWord = md5($_POST['pwd']);
-$qry = "SELECT usrid, username, oauth FROM usermeta WHERE username='".$uName."' AND pass='".$pWord."' AND status='active'";
-$res = mysql_query($qry);
-$num_row = mysql_num_rows($res);
-$row=mysql_fetch_assoc($res);
-if( $num_row == 1 ) {
-    echo 'true';
-    $_SESSION['uName'] = $row['username'];
-    $_SESSION['oId'] = $row['orgid'];
-    $_SESSION['auth'] = $row['oauth'];
-    }
-else {
-    echo 'false';
-}
+include("../db/connect.php");
+$username = $_POST['username'];
+$password = $_POST['password'];
 
+$query = "SELECT * FROM user WHERE username='$username' AND password='$password'";
+$result = mysqli_query($con,$query)or die(mysqli_error());
+$num_row = mysqli_num_rows($result);
+
+$row=mysqli_fetch_array($result);
+		if( $num_row >=1 ) {
+			echo 'true';
+			$_SESSION['username']=$row['username'];
+		}
+		else{
+			echo 'false';
+		}
 ?>
