@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if($_SESSION['loggedIn'] == TRUE){
+if($_SESSION['username'] == TRUE){
 	//continue on to the page or do something awesome	
 } else {
 	//redirect them back to the login page

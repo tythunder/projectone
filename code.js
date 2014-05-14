@@ -24,7 +24,6 @@ $(document).ready(function() {
         $.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
             var j_data = $.parseJSON(data);
             console.log(j_data);
-
         });
 		
          $.ajax({
@@ -37,7 +36,7 @@ $(document).ready(function() {
                 $("#login_form").fadeOut("normal");
 				$("#profile").html("<a href='sv/logout.php' id='logout'>Logout</a>");
 					window.location.replace("dashboard.php");    
-					//$("#uname").html(username);
+					$("#uname").html(username);
 				}
               else
               {
