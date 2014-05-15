@@ -5,7 +5,7 @@
 					echo json_encode($_SESSION);
 				}	
 		?>
-            <span id="uname">Welcome, <?php echo $_SESSION["username"] ?></span><br />
+            <span id="uname">Welcome, <?php //echo $_SESSION["username"] ?></span><br />
 			<a href='sv/logout.php' id='logout'>Logout</a>
 		<?php }else {?>
 		<a id="login_a" href="#">login</a>

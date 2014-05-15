@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype xhtml>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -8,6 +8,10 @@
 	<script src="code.js"></script>
 	<script type="text/javascript" src="//use.typekit.net/doa3oio.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <script>
+	$(document).ready(function(){
+	});
+	</script>
 	<title>Project One - Admin</title>
 </head>
 

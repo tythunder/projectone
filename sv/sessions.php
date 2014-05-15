@@ -1,18 +1,13 @@
 <?php
 session_start();
 
-if($_SESSION['username'] == TRUE){
-	//continue on to the page or do something awesome	
-} else {
-	//redirect them back to the login page
-}
-
-if(isset($_GET['session_data'])){
+if(isset($_SESSION['username'])){
 	echo json_encode($_SESSION);
+} else {
+	echo "you suck";
 }
 
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
-
+if(isset($_POST['destroy'])){
+	session_destroy();	
+}
 ?>

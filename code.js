@@ -1,5 +1,20 @@
 $(document).ready(function() {
-
+	$.get("sv/sessions.php", function(s_data){
+		if(s_data == "you suck"){
+			alert("you really suck");
+			//redirect
+		}
+		else{
+			window.tyalicesessions = $.parseJSON(s_data);
+			 console.log(window.tyalicesessions);
+		}
+	});
+	
+	$("#mybutton").click(function(e){
+		$.post("sv/sessions.php", {destroy:true}, function(s_data){
+			//redirect
+		});
+	});
     //code for index
     $(".registerwrap").click(function() {
         $(".overlay").addClass("showoverlay");
@@ -14,19 +29,22 @@ $(document).ready(function() {
     });
 	
 	//code for login
+	var username;
+	var password;	
 	$("#login_a").click(function(){
 		window.location.replace('index.php');
 	});
+	
    $("#login").click(function(){   
         username=$("#username").val();
         password=$("#password").val();
 
         $.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
             var j_data = $.parseJSON(data);
-            console.log(j_data);
+		//	console.log(j_data);
         });
-		
-         $.ajax({
+	
+/*         $.ajax({
             type: "POST",
             url: "sv/login.php",
             data: "username="+username+"&password="+password,
@@ -35,8 +53,8 @@ $(document).ready(function() {
               {
                 $("#login_form").fadeOut("normal");
 				$("#profile").html("<a href='sv/logout.php' id='logout'>Logout</a>");
-					window.location.replace("dashboard.php");    
-					$("#uname").html(username);
+					//window.location.replace("dashboard.php");
+					//$("#uname").append();
 				}
               else
               {
@@ -48,7 +66,7 @@ $(document).ready(function() {
                  $("#add_err").html("Loading...")
             }
         });
-         return false;
+         return false;*/
 
 /* old code for session login --- doesn't work */	
 /*        $.post("sv/sessions.php", {session_data:true}, function(data){
@@ -176,15 +194,28 @@ $(document).ready(function() {
     $("#loginsubmit").click(function() {
         var username = $("#username").val();
         var password = $("#password").val();
-        $.post("sv/sessions.php", {session_data:true}, function(data){
-            var j_data = $.parseJSON(data);
+/*        $.post("sv/sessions.php", {session_data:true}, function(data){
+           var j_data = $.parseJSON(data);
             console.log(j_data);
-        });
+        });*/
         
         $.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
-            var j_data = $.parseJSON(data);
-            console.log(j_data);
+            $.get("sv/sessions.php", function(s_data){
+				if(s_data == "you suck"){
+					alert("you really suck");
+				}
+				else{
+					var j_data = $.parseJSON(data);
+					window.tyalicesessions = $.parseJSON(s_data);
+           			 console.log(j_data);
+				$.each(j_data.portfolio, function (i, value) {
+					console.log(value.title);
+				});
+				}
+			});
+			
         });
+		
     });
 
 });

@@ -26,8 +26,14 @@ class User{
 		$this->userDB->set_user_name($username);
 		$this->userDB->set_password($password);
 		$id = $this->userDB->get_user_id_by_name_pass();
-		
+	
+	if ($id != NULL){
+		session_start();
+		$_SESSION["username"] = $username;
+		$_SESSION["id"] = $id;
+	}
 		return $id;
+	//else
 	}
 }
 
