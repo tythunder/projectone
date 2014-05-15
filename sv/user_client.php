@@ -10,4 +10,10 @@ if(isset($_GET['user'])){
 	}
 }
 
+if(isset($_GET['userinfo'])){
+	$userPort = new User();
+	$user_id = $userPort->get_user_info($_GET['userid']);
+	echo json_encode($user_id);
+}
+
 ?>

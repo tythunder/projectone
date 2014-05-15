@@ -1,20 +1,5 @@
 $(document).ready(function() {
-	$.get("sv/sessions.php", function(s_data){
-		if(s_data == "you suck"){
-			alert("you really suck");
-			//redirect
-		}
-		else{
-			window.tyalicesessions = $.parseJSON(s_data);
-			 console.log(window.tyalicesessions);
-		}
-	});
 	
-	$("#mybutton").click(function(e){
-		$.post("sv/sessions.php", {destroy:true}, function(s_data){
-			//redirect
-		});
-	});
     //code for index
     $(".registerwrap").click(function() {
         $(".overlay").addClass("showoverlay");
@@ -26,55 +11,6 @@ $(document).ready(function() {
         $(".overlay").removeClass("showoverlay");
         $(".regformwrap").removeClass("showregisterwrap");
         $(".mainloginwrap").removeClass("mainwrapscale");
-    });
-	
-	//code for login
-	var username;
-	var password;	
-	$("#login_a").click(function(){
-		window.location.replace('index.php');
-	});
-	
-   $("#login").click(function(){   
-        username=$("#username").val();
-        password=$("#password").val();
-
-        $.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
-            var j_data = $.parseJSON(data);
-		//	console.log(j_data);
-        });
-	
-/*         $.ajax({
-            type: "POST",
-            url: "sv/login.php",
-            data: "username="+username+"&password="+password,
-            success: function(html){
-              if(html=='true')
-              {
-                $("#login_form").fadeOut("normal");
-				$("#profile").html("<a href='sv/logout.php' id='logout'>Logout</a>");
-					//window.location.replace("dashboard.php");
-					//$("#uname").append();
-				}
-              else
-              {
-                    $("#add_err").html("Wrong username or password");
-              }
-            },
-            beforeSend:function()
-			{
-                 $("#add_err").html("Loading...")
-            }
-        });
-         return false;*/
-
-/* old code for session login --- doesn't work */	
-/*        $.post("sv/sessions.php", {session_data:true}, function(data){
-            var j_data = $.parseJSON(data);
-            console.log(j_data);
-        });
-*/        
-
     });
 
     //code for menu
@@ -194,28 +130,17 @@ $(document).ready(function() {
     $("#loginsubmit").click(function() {
         var username = $("#username").val();
         var password = $("#password").val();
-/*        $.post("sv/sessions.php", {session_data:true}, function(data){
-           var j_data = $.parseJSON(data);
-            console.log(j_data);
-        });*/
-        
         $.get("sv/user_client.php", {user:true, username:username, password:password}, function(data){
             $.get("sv/sessions.php", function(s_data){
-				if(s_data == "you suck"){
-					alert("you really suck");
+				if(s_data == "log_error"){
+					alert(s_data);
 				}
 				else{
 					var j_data = $.parseJSON(data);
-					window.tyalicesessions = $.parseJSON(s_data);
-           			 console.log(j_data);
-				$.each(j_data.portfolio, function (i, value) {
-					console.log(value.title);
-				});
+           			console.log(j_data);
+					window.location.replace("dashboard.html");
 				}
 			});
-			
         });
-		
     });
-
 });
