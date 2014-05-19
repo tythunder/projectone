@@ -13,19 +13,17 @@ $(document).ready(function() {
 				$.each(userdata.portfolio, function(index, value){
 					portid = value.id;
 					$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='adminimageedit'>"+value.title+"</div></div>");
+					$.get("sv/image_client.php", {portfolioimages:true, portfolioid:portid }, function(data){
+		        		var imageData = $.parseJSON(data);
+		        		console.log(imageData);
+		        		$(".adminimage").click(function() {
+		        			$(".adminimagewrap").empty();
+		        			$.each(imageData.image, function(index, value){
+		        				$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'></div>");
+		        			});
+		        		});
+		        	});
 				});
-
-	        	$.get("sv/image_client.php", {portfolioimages:true, portfolioid:portid }, function(data){
-	        		var imageData = $.parseJSON(data);
-	        		console.log(imageData);
-	        		$(".adminimage").click(function() {
-	        			$(".adminimagewrap").empty();
-	        			$.each(imageData.image, function(index, value){
-	        				$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'></div>");
-	        			});
-	        		});
-	        	});
-
         	});
 		}
 	});

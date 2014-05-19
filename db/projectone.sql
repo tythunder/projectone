@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: May 19, 2014 at 10:06 PM
--- Server version: 5.5.32
--- PHP Version: 5.4.19
+-- Host: localhost:8889
+-- Generation Time: May 19, 2014 at 10:51 PM
+-- Server version: 5.5.34
+-- PHP Version: 5.5.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,8 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `projectone`
 --
-CREATE DATABASE IF NOT EXISTS `projectone` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `projectone`;
 
 -- --------------------------------------------------------
 
@@ -28,13 +26,13 @@ USE `projectone`;
 -- Table structure for table `image`
 --
 
-CREATE TABLE IF NOT EXISTS `image` (
+CREATE TABLE `image` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for image',
   `link` varchar(500) NOT NULL COMMENT 'link for image',
   `title` varchar(100) NOT NULL COMMENT 'title for image',
   `desc` varchar(1000) NOT NULL COMMENT 'desc for image',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `image`
@@ -50,7 +48,12 @@ INSERT INTO `image` (`id`, `link`, `title`, `desc`) VALUES
 (10, 'images/dummy/gengar.jpg', 'Gengar', 'This is Gengar.'),
 (12, 'images/dummy/farfetched.jpg', 'Farfetched', 'This is Farfetched.'),
 (13, 'images/dummy/hypno.jpg', 'Hypno', 'This is Hypno.'),
-(14, 'images/dummy/seaking.jpg', 'Seaking', 'This is Seaking.');
+(14, 'images/dummy/seaking.jpg', 'Seaking', 'This is Seaking.'),
+(15, 'images/dummy/jean.jpg', 'Jean', 'Jean''s avatar'),
+(16, 'images/dummy/levi.jpg', 'Levi', 'Levi''s avatar'),
+(17, 'images/dummy/Sasha.jpg', 'Sasha', 'Sasha''s avatar'),
+(18, 'images/dummy/reiner.jpg', 'Renier', 'Renier''s avatar'),
+(19, 'images/dummy/ymir.jpg', 'Ymir', 'Ymir''s avatar');
 
 -- --------------------------------------------------------
 
@@ -58,13 +61,13 @@ INSERT INTO `image` (`id`, `link`, `title`, `desc`) VALUES
 -- Table structure for table `portfolio`
 --
 
-CREATE TABLE IF NOT EXISTS `portfolio` (
+CREATE TABLE `portfolio` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `link` varchar(500) NOT NULL COMMENT 'link for the splash image',
   `title` varchar(100) NOT NULL COMMENT 'title for portfolio',
   `desc` varchar(1000) NOT NULL COMMENT 'title for the description',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `portfolio`
@@ -72,7 +75,8 @@ CREATE TABLE IF NOT EXISTS `portfolio` (
 
 INSERT INTO `portfolio` (`id`, `link`, `title`, `desc`) VALUES
 (1, 'images/dummy/pokesplash.jpg', 'Pokemon', 'Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
-(2, 'splashtwo.png', 'Photoshop Project', 'This was my Photoshop project from grade 13');
+(2, 'splashtwo.png', 'Photoshop Project', 'This was my Photoshop project from grade 13'),
+(4, 'images/dummy/mikasa.jpg', 'Attack On Titan', 'Hate dog climb leg. Shake treat bag. Chew iPad power cord. Stand in front of the computer screen. Need to chase tail chew iPad power cord cat snacks but stand in front of the computer screen. ');
 
 -- --------------------------------------------------------
 
@@ -80,7 +84,7 @@ INSERT INTO `portfolio` (`id`, `link`, `title`, `desc`) VALUES
 -- Table structure for table `portfolio_collaborator`
 --
 
-CREATE TABLE IF NOT EXISTS `portfolio_collaborator` (
+CREATE TABLE `portfolio_collaborator` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for portfolio and collaborator relation',
   `portfolio_id` int(11) NOT NULL COMMENT 'id from portfolio table',
   `user_id` int(11) NOT NULL COMMENT 'id from user table',
@@ -104,14 +108,14 @@ INSERT INTO `portfolio_collaborator` (`id`, `portfolio_id`, `user_id`) VALUES
 -- Table structure for table `portfolio_image`
 --
 
-CREATE TABLE IF NOT EXISTS `portfolio_image` (
+CREATE TABLE `portfolio_image` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for portfolio image relation',
   `portfolio_id` int(11) NOT NULL COMMENT 'id from portfolio table',
   `image_id` int(11) NOT NULL COMMENT 'id from image table',
   PRIMARY KEY (`id`),
   KEY `portfolio_id` (`portfolio_id`,`image_id`),
   KEY `image_id` (`image_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Dumping data for table `portfolio_image`
@@ -127,7 +131,12 @@ INSERT INTO `portfolio_image` (`id`, `portfolio_id`, `image_id`) VALUES
 (9, 1, 12),
 (10, 1, 13),
 (11, 1, 14),
-(2, 2, 2);
+(2, 2, 2),
+(12, 4, 15),
+(13, 4, 16),
+(14, 4, 17),
+(15, 4, 18),
+(16, 4, 19);
 
 -- --------------------------------------------------------
 
@@ -135,7 +144,7 @@ INSERT INTO `portfolio_image` (`id`, `portfolio_id`, `image_id`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for user',
   `username` varchar(32) NOT NULL COMMENT 'name for user',
   `email` varchar(320) NOT NULL COMMENT 'users email',
@@ -160,14 +169,14 @@ INSERT INTO `user` (`id`, `username`, `email`, `password`, `first_name`, `last_n
 -- Table structure for table `user_portfolio`
 --
 
-CREATE TABLE IF NOT EXISTS `user_portfolio` (
+CREATE TABLE `user_portfolio` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id for user portfolio relation',
   `user_id` int(11) NOT NULL COMMENT 'id from user table',
   `portfolio_id` int(11) NOT NULL COMMENT 'id from portfolio table',
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `portfolio_id` (`portfolio_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `user_portfolio`
@@ -175,7 +184,8 @@ CREATE TABLE IF NOT EXISTS `user_portfolio` (
 
 INSERT INTO `user_portfolio` (`id`, `user_id`, `portfolio_id`) VALUES
 (1, 1, 1),
-(3, 2, 2);
+(3, 2, 2),
+(5, 1, 4);
 
 --
 -- Constraints for dumped tables
