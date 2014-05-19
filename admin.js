@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+	var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
 	$.get("sv/sessions.php", function(s_data){
 		if(s_data == "log_error"){
 			window.location.replace("index.html");
@@ -10,14 +12,7 @@ $(document).ready(function() {
 				var userdata = $.parseJSON(data);
 				$.each(userdata.portfolio, function(index, value){
 					portid = value.id;
-					$(".adminimagewrap").append("<div class='adminimage'><div class='adminimageedit'>"+value.title+"</div></div>");
-					$(".adminimage").css({
-						"background": "url("+value.link+") no-repeat center",
-						"-webkit-background-size": "cover",
-						"-moz-background-size": "cover",
-						"-o-background-size": "cover",
-						"background-size": "cover"
-					});
+					$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='adminimageedit'>"+value.title+"</div></div>");
 				});
 
 	        	$.get("sv/image_client.php", {portfolioimages:true, portfolioid:portid }, function(data){
@@ -26,7 +21,7 @@ $(document).ready(function() {
 	        		$(".adminimage").click(function() {
 	        			$(".adminimagewrap").empty();
 	        			$.each(imageData.image, function(index, value){
-	        				$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover'></div>");
+	        				$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'></div>");
 	        			});
 	        		});
 	        	});
