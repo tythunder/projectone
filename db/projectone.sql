@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2014 at 12:36 PM
+-- Generation Time: May 19, 2014 at 07:54 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -34,16 +34,23 @@ CREATE TABLE IF NOT EXISTS `image` (
   `title` varchar(100) NOT NULL COMMENT 'title for image',
   `desc` varchar(1000) NOT NULL COMMENT 'desc for image',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `image`
 --
 
 INSERT INTO `image` (`id`, `link`, `title`, `desc`) VALUES
-(1, 'imageone.png', 'Pretty', 'This picture is pretty.'),
+(1, 'images/dummy/charizard.jpg', 'Charizard', 'This is Charizard'),
 (2, 'imagetwo.png', 'Ugly', 'This picture is ugly.'),
-(3, 'imagethree.png', 'Boring', 'This picture is boring.');
+(3, 'images/dummy/pidgey.jpg', 'Pidgey', 'This is Pidgey.'),
+(4, 'images/dummy/rapidash.jpg', 'Rapidash', 'This is Rapidash.'),
+(5, 'images/dummy/pikachu.jpg', 'Pikachu', 'This is Pikachu.'),
+(8, 'images/dummy/mankey.jpg', 'Mankey', 'This is Mankey.'),
+(10, 'images/dummy/gengar.jpg', 'Gengar', 'This is Gengar.'),
+(12, 'images/dummy/farfetched.jpg', 'Farfetched', 'This is Farfetched.'),
+(13, 'images/dummy/hypno.jpg', 'Hypno', 'This is Hypno.'),
+(14, 'images/dummy/seaking.jpg', 'Seaking', 'This is Seaking.');
 
 -- --------------------------------------------------------
 
@@ -64,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `portfolio` (
 --
 
 INSERT INTO `portfolio` (`id`, `link`, `title`, `desc`) VALUES
-(1, 'splashone.png', 'Illustrator Project', 'This was my Illustrator project from Grade 3'),
+(1, 'images/dummy/pokesplash.jpg', 'Pokemon', 'Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
 (2, 'splashtwo.png', 'Photoshop Project', 'This was my Photoshop project from grade 13'),
 (3, 'splashthree.png', 'Blender Project', 'I can make things in 3D');
 
@@ -81,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `portfolio_collaborator` (
   PRIMARY KEY (`id`),
   KEY `portfolio_id` (`portfolio_id`,`user_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `portfolio_collaborator`
@@ -105,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `portfolio_image` (
   PRIMARY KEY (`id`),
   KEY `portfolio_id` (`portfolio_id`,`image_id`),
   KEY `image_id` (`image_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `portfolio_image`
@@ -114,6 +121,13 @@ CREATE TABLE IF NOT EXISTS `portfolio_image` (
 INSERT INTO `portfolio_image` (`id`, `portfolio_id`, `image_id`) VALUES
 (1, 1, 1),
 (3, 1, 3),
+(5, 1, 4),
+(6, 1, 5),
+(7, 1, 8),
+(8, 1, 10),
+(9, 1, 12),
+(10, 1, 13),
+(11, 1, 14),
 (2, 2, 2);
 
 -- --------------------------------------------------------
@@ -173,22 +187,22 @@ INSERT INTO `user_portfolio` (`id`, `user_id`, `portfolio_id`) VALUES
 -- Constraints for table `portfolio_collaborator`
 --
 ALTER TABLE `portfolio_collaborator`
-  ADD CONSTRAINT `portfolio_collaborator_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `portfolio_collaborator_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `portfolio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `portfolio_collaborator_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `portfolio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `portfolio_collaborator_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `portfolio_image`
 --
 ALTER TABLE `portfolio_image`
-  ADD CONSTRAINT `portfolio_image_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `portfolio_image_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `portfolio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `portfolio_image_ibfk_1` FOREIGN KEY (`portfolio_id`) REFERENCES `portfolio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `portfolio_image_ibfk_2` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_portfolio`
 --
 ALTER TABLE `user_portfolio`
-  ADD CONSTRAINT `user_portfolio_ibfk_2` FOREIGN KEY (`portfolio_id`) REFERENCES `portfolio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_portfolio_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `user_portfolio_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_portfolio_ibfk_2` FOREIGN KEY (`portfolio_id`) REFERENCES `portfolio` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
