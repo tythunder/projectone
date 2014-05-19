@@ -8,7 +8,6 @@ $(document).ready(function() {
 			var portid;
 			$.get("sv/user_client.php", {userinfo:true, userid:window.logged_session.id}, function(data){
 				var userdata = $.parseJSON(data);
-
 				$.each(userdata.portfolio, function(index, value){
 					portid = value.id;
 					$(".adminimagewrap").append("<div class='adminimage'><div class='adminimageedit'>"+value.title+"</div></div>");
@@ -25,14 +24,9 @@ $(document).ready(function() {
 	        		var imageData = $.parseJSON(data);
 	        		console.log(imageData);
 	        		$(".adminimage").click(function() {
-	        			$.each(imageData.portfolio, function(index, value) {
-	        				 $(".adminimage").css({
-								"background": "url("+value.image+") no-repeat center",
-								"-webkit-background-size": "cover",
-								"-moz-background-size": "cover",
-								"-o-background-size": "cover",
-								"background-size": "cover"
-							});
+	        			$(".adminimagewrap").empty();
+	        			$.each(imageData.image, function(index, value){
+	        				$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover'></div>");
 	        			});
 	        		});
 	        	});
