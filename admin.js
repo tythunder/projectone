@@ -24,6 +24,17 @@ $(document).ready(function() {
 	        	$.get("sv/image_client.php", {portfolioimages:true, portfolioid:portid }, function(data){
 	        		var imageData = $.parseJSON(data);
 	        		console.log(imageData);
+	        		$(".adminimage").click(function() {
+	        			$.each(imageData.portfolio, function(index, value) {
+	        				 $(".adminimage").css({
+								"background": "url("+value.image+") no-repeat center",
+								"-webkit-background-size": "cover",
+								"-moz-background-size": "cover",
+								"-o-background-size": "cover",
+								"background-size": "cover"
+							});
+	        			});
+	        		});
 	        	});
 
         	});
