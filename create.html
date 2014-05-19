@@ -107,13 +107,13 @@
 
 	<div class="uploadmodal">
 		<div class="uploadwrap">
-        	<h2> Create Portfolio</h2>
-            <form id="portfolio_form" action="add_portfolio.php" method="post">
-            <input type='hidden' name='add' value='addNew' />
-             <label>Title:</label><input type="text" name="imgTitle" id="imgTitle" /><br>
-             <label>Description:</label><input type="text" name="imgDesc" id="imgDesc" /><br>
-             <label>Cover image:</label><input type="file" name="imgLink" id="imgLink" /> <br>
-             <input type="button" id="upload-submit" value="upload" />
+        	<h2>Upload Image</h2>
+            <form id="img_form" action="add_img.php" method="post">
+            <input type='hidden' name='addImg' value='addNewImg' />
+             <label>Image Title:</label><input type="text" name="imgTitle" id="imgTitle" /><br>
+             <label>Image Description:</label><input type="text" name="imgDesc" id="imgDesc" /><br>
+             <label>Image URL:</label><input type="file" name="imgLink" id="imgLink" /> <br>
+             <input type="button" id="image-submit" value="upload" />
 			</form>	
 		</div>
 		<div class="uploadaction">
@@ -128,8 +128,15 @@
 
 	<div class="descmodal">
 		<div class="descwrap">
-			this is desc
-		</div>
+        	<h2> Create Portfolio</h2>
+            <form id="portfolio_form" action="add_portfolio.php" method="post">
+            <input type='hidden' name='addPort' value='addNewPort' />
+             <label>Portfolio Title:</label><input type="text" name="imgTitle" id="imgTitle" /><br>
+             <label>Portfolio Description:</label><input type="text" name="pDesc" id="pDesc" /><br>
+             <label>Cover image:</label><input type="file" name="pLink" id="pLink" /> <br>
+             <input type="button" id="portfolio-submit" value="upload" />
+			</form>	
+  		</div>
 		<div class="descaction">
 			<div class="descaccept">
 				<img src="images/icons/accept.png" />

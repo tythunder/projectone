@@ -138,7 +138,7 @@ $(document).ready(function() {
 				else{
 					var j_data = $.parseJSON(data);
            			console.log(j_data);
-					window.location.replace("dashboard.html");
+					window.location.replace("admin.html");
 				}
 			});
         });

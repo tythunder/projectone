@@ -40,7 +40,9 @@ $(document).ready(function() {
 			window.location.replace("index.html");
 		});
 	});
-
+	$(".create_redir").click(function(){
+			window.location.replace("create.html");
+	});
 	
 	//code for menu
     $(".menuicon").hover(function() {
