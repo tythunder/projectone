@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2014 at 07:54 PM
+-- Generation Time: May 19, 2014 at 10:06 PM
 -- Server version: 5.5.32
 -- PHP Version: 5.4.19
 
@@ -72,8 +72,7 @@ CREATE TABLE IF NOT EXISTS `portfolio` (
 
 INSERT INTO `portfolio` (`id`, `link`, `title`, `desc`) VALUES
 (1, 'images/dummy/pokesplash.jpg', 'Pokemon', 'Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
-(2, 'splashtwo.png', 'Photoshop Project', 'This was my Photoshop project from grade 13'),
-(3, 'splashthree.png', 'Blender Project', 'I can make things in 3D');
+(2, 'splashtwo.png', 'Photoshop Project', 'This was my Photoshop project from grade 13');
 
 -- --------------------------------------------------------
 
@@ -176,8 +175,7 @@ CREATE TABLE IF NOT EXISTS `user_portfolio` (
 
 INSERT INTO `user_portfolio` (`id`, `user_id`, `portfolio_id`) VALUES
 (1, 1, 1),
-(3, 2, 2),
-(4, 1, 3);
+(3, 2, 2);
 
 --
 -- Constraints for dumped tables
