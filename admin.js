@@ -5,17 +5,32 @@ $(document).ready(function() {
 		}
 		else{
 			window.logged_session = $.parseJSON(s_data);
-			 //console.log(window.logged_session.id);
-			 $.get("sv/user_client.php", {userinfo:true, userid:window.logged_session.id}, function(data){
+			var portid;
+			$.get("sv/user_client.php", {userinfo:true, userid:window.logged_session.id}, function(data){
 				var userdata = $.parseJSON(data);
+
 				$.each(userdata.portfolio, function(index, value){
+					portid = value.id;
 					$(".adminimagewrap").append("<div class='adminimage'><div class='adminimageedit'>"+value.title+"</div></div>");
+					$(".adminimage").css({
+						"background": "url("+value.link+") no-repeat center",
+						"-webkit-background-size": "cover",
+						"-moz-background-size": "cover",
+						"-o-background-size": "cover",
+						"background-size": "cover"
+					});
 				});
+
+	        	$.get("sv/image_client.php", {portfolioimages:true, portfolioid:portid }, function(data){
+	        		var imageData = $.parseJSON(data);
+	        		console.log(imageData);
+	        	});
+
         	});
 		}
 	});
 	
-	$(".logout_btn").click(function(e){
+	$(".logout_btn").click(function(){
 		$.post("sv/sessions.php", {destroy:true}, function(){
 			window.location.replace("index.html");
 		});
@@ -40,9 +55,5 @@ $(document).ready(function() {
             height: window.innerHeight
         });
     });
-
-        
-        
-		
-
+   
 });
