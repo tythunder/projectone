@@ -33,6 +33,11 @@ $(document).ready(function() {
         });
     });
 
+	//code for menu buttons
+	$(".home_redir").click(function(){
+		window.location.replace("admin.html");
+	});
+
     // this opens modal for image upload
     $(".createimageedit").click(function() {
         $(".createcontainer").css("-webkit-transform", "scale(0.8)");
