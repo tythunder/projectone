@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
     $.get("sv/sessions.php", function(s_data){
         if(s_data == "log_error"){
             window.location.replace("index.html");
@@ -7,8 +8,43 @@ $(document).ready(function() {
             window.logged_session = $.parseJSON(s_data);
             var portid;
             $.get("sv/user_client.php", {userinfo:true, userid:window.logged_session.id}, function(data){
-                var userdata = $.parseJSON(data);	
-            });
+                var userdata = $.parseJSON(data);
+                $.each(userdata.portfolio, function(index, value){
+                    portid = value.id;
+                    $(".deleteimagewrap").append("<div class='deleteimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='deleteimageedit'>"+value.title+"<img class='delpictureimg' src='images/icons/picture.png' /></div></div>");
+                });
+
+                $(".deleteimage").hover(function() {
+                    var divId = $(this).attr("id");
+                    $.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
+                        var portfolioData = $.parseJSON(data);
+                        $(".deletedesc").append("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
+                    });
+                }, function() {
+                    $(".deletedesc").empty();
+                });
+
+                $(".deleteimage").click(function(){
+                    $(".deletedesc").empty();
+                    var divId = $(this).attr("id");
+                    $.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
+                        var portfolioData = $.parseJSON(data);
+                        $(".deleteimagewrap").empty();
+                        $.each(portfolioData.image, function(index, value){
+                            $(".deleteimagewrap").append("<div class='deleteportfolioimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'><img class='delpictureimg' src='images/icons/picture.png' /></div>");
+                        });
+                        $(".deleteportfolioimage").hover(function() {
+                            var divId = $(this).attr("id");
+                            $.get("sv/image_client.php", {getimagedata:true, imageid:divId}, function(data){
+                                var portfolioData = $.parseJSON(data);
+                                $(".deletedesc").append("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
+                            });
+                        }, function() {
+                            $(".deletedesc").empty();
+                        });
+                    });
+                });         
+            });           
         }
     });
 
@@ -61,20 +97,6 @@ $(document).ready(function() {
         $(".uploadmodal").addClass("showuploadmodal");
     });
 
-    // this is to close upload modal
-    $(".uploadaccept").click(function() {
-        $(".deleteontainer").css("-webkit-transform", "scale(1)");
-        $(".deleteoverlay").removeClass("showcreateoverlay");
-        $(".uploadmodal").removeClass("showuploadmodal");
-		$(".uploadmodal").load("modal_create");
-    });
-
-    $(".uploadcancel").click(function() {
-        $(".deleteontainer").css("-webkit-transform", "scale(1)");
-        $(".deleteoverlay").removeClass("showcreateoverlay");
-        $(".uploadmodal").removeClass("showuploadmodal");
-    });
-
     // this opens modal for the description
     $(".deletedesc").click(function() {
         $(".deleteontainer").css("-webkit-transform", "scale(0.8)");
@@ -82,24 +104,11 @@ $(document).ready(function() {
         $(".descmodal").addClass("showdescmodal");
     });
 
-    // this is to close upload modal
-    $(".descaccept").click(function() {
-        $(".deleteontainer").css("-webkit-transform", "scale(1)");
-        $(".deleteoverlay").removeClass("showcreateoverlay");
-        $(".descmodal").removeClass("showdescmodal");
-    });    
-
-    $(".desccancel").click(function() {
-        $(".deleteontainer").css("-webkit-transform", "scale(1)");
-        $(".deleteoverlay").removeClass("showcreateoverlay");
-        $(".descmodal").removeClass("showdescmodal");
-    });
-
     // code for create hovers
     $(".deleteimage").hover(function() {
-        $(this).children().children(".pictureimg").css("opacity", 1.0);
+        $(this).children().children(".delpictureimg").css("opacity", 1.0);
     }, function() {
-        $(this).children().children(".pictureimg").css("opacity", 0.5);
+        $(this).children().children(".delpictureimg").css("opacity", 0.5);
     });
 
     $(".deletedescwrap").hover(function() {

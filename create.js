@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
     $.get("sv/sessions.php", function(s_data){
         if(s_data == "log_error"){
             window.location.replace("index.html");
