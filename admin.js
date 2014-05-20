@@ -32,10 +32,15 @@ $(document).ready(function() {
 		        		var portfolioData = $.parseJSON(data);
 		        		$(".adminimagewrap").empty();
 		        		$.each(portfolioData.image, function(index, value){
-		        			$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'></div>");
+		        			$(".adminimagewrap").append("<div class='adminportfolioimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'></div>");
+		        		});
+		        		$(".adminportfolioimage").hover(function() {
+		        			/* Stuff to do when the mouse enters the element */
+		        		}, function() {
+		        			$(".admindesc").empty();
 		        		});
 		        	});
-		        });				
+		        }); 		
         	});
 		}
 	});

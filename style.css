@@ -478,6 +478,22 @@ body {
 	background: rgba(0,0,0,0.1);
 }
 
+.adminportfolioimage {
+	float: left;
+	width: 25%;
+	height: 50%;
+	position: relative;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	border: 1px solid rgba(255,255,255, 0.5);
+	background: rgba(0,0,0,0.1);
+}
+
 .adminimageedit {
 	position: absolute;
 	right: 20px;
