@@ -33,19 +33,24 @@ body {
 	width: 13%;
 	height: 13%;
 	display: inline-block;
-	background: rgba(0,0,0,0.1);
 	cursor: pointer;
 	z-index: 9999;
 	margin:0;
 	padding:0;
 	border-radius: 50%;
 }
-
 .menuicon img {
 	display: inline-block;
 	max-width: 100%;
 	margin: 0;
 	padding: 0;
+}
+.menuicon img:hover {
+	-webkit-filter: invert(100%);
+	-moz-filter: invert(100%);
+	-ms-filter: invert(100%);
+	-o-filter: invert(100%);
+	filter: invert(100%);
 }
 
 /* CREATE PAGE STYLES*/
