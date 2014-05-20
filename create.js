@@ -31,11 +31,7 @@ $(document).ready(function() {
             height: window.innerHeight
         });
     });
-	$(".logout_btn").click(function(){
-		$.post("sv/sessions.php", {destroy:true}, function(){
-			window.location.replace("index.html");
-		});
-	});
+
 	//code for menu buttons
 	$(".home_redir").click(function(){
 		window.location.replace("admin.html");
@@ -51,6 +47,11 @@ $(document).ready(function() {
 	});
 	$(".search_redir").click(function(){
 		window.location.replace("search.html");
+	});
+	$(".logout_redir").click(function(){
+		$.post("sv/sessions.php", {destroy:true}, function(){
+			window.location.replace("index.html");
+		});
 	});
 
     // this opens modal for image upload

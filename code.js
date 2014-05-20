@@ -13,12 +13,6 @@ $(document).ready(function() {
         $(".mainloginwrap").removeClass("mainwrapscale");
     });
 
-    //code for menu
-    $(".menuicon").hover(function() {
-        $(this).children(".menuitem").stop().animate({width:200}, 500, "easeOutExpo");
-    }, function() {
-        $(this).children(".menuitem").stop().animate({width:0}, 500, "easeOutExpo");
-    });
 
     //code for create
     $(".createcontainer").css({
