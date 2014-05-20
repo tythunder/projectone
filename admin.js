@@ -15,12 +15,23 @@ $(document).ready(function() {
 					$(".adminimagewrap").append("<div class='adminimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='adminimageedit'>"+value.title+"</div></div>");
 				});
 
-				$(".adminimage").click(function(){
+				$(".adminimage").hover(function() {
 					var divId = $(this).attr("id");
 					$.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
-		        		var imageData = $.parseJSON(data);
+		        		var portfolioData = $.parseJSON(data);
+		        		$(".admindesc").append(portfolioData[divId].title+"<br>"+portfolioData[divId].desc);
+		        	});
+				}, function() {
+					$(".admindesc").empty();
+				});
+
+				$(".adminimage").click(function(){
+					$(".admindesc").empty();
+					var divId = $(this).attr("id");
+					$.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
+		        		var portfolioData = $.parseJSON(data);
 		        		$(".adminimagewrap").empty();
-		        			$.each(imageData.image, function(index, value){
+		        		$.each(portfolioData.image, function(index, value){
 		        			$(".adminimagewrap").append("<div class='adminimage' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'></div>");
 		        		});
 		        	});
@@ -34,6 +45,7 @@ $(document).ready(function() {
 			window.location.replace("index.html");
 		});
 	});
+
 	$(".create_redir").click(function(){
 			window.location.replace("create.html");
 	});
