@@ -25,7 +25,6 @@ class Image{
 
 	function get_all_images_by_id($id){
 		$this->imageDB->set_image_id($id);
-
 		$image = $this->imageDB->get_image_by_id();
 
 		return $image;
