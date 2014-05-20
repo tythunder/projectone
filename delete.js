@@ -11,7 +11,7 @@ $(document).ready(function() {
                 var userdata = $.parseJSON(data);
                 $.each(userdata.portfolio, function(index, value){
                     portid = value.id;
-                    $(".deleteimagewrap").append("<div class='deleteimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='deleteimageedit'>"+value.title+"<img class='delpictureimg' src='images/icons/picture.png' /></div></div>");
+                    $(".deleteimagewrap").append("<div class='deleteimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='deleteimageedit'>"+value.title+"<img class='delportfolioimg' src='images/icons/picture.png' /></div></div>");
                 });
 
                 $(".deleteimage").hover(function() {

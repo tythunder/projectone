@@ -337,14 +337,14 @@ body {
 	margin: 0;
 	display: block;
 }
-.delpictureimg{
+.delportfolioimg, .delpictureimg{
 	display: inline-block;
 	position: absolute;
 	right: 5;
 	bottom: 5;	
 	opacity: 1;
 }
-.delpictureimg:hover{
+.delportfolioimg:hover.delpictureimg:hover{
 	opacity:0.5;
 }
 .deleteoverlay {
@@ -421,14 +421,14 @@ body {
 	display: block;
 }
 
-.editpictureimg{
+.editportfolioimg, .editpictureimg{
 	display: inline-block;
 	position: absolute;
 	right: 5;
 	bottom: 5;	
 	opacity: 1;
 }
-.editpictureimg:hover{
+.editportfolioimg:hover, .editpictureimg:hover{
 	opacity:0.5;
 }
 
