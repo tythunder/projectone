@@ -45,14 +45,12 @@ $(document).ready(function() {
 			window.location.replace("index.html");
 		});
 	});
-<<<<<<< HEAD
 
-=======
 	//code for menu buttons
 	$(".home_redir").click(function(){
 		window.location.replace("admin.html");
 	});	
->>>>>>> e96e2ef5ca1a4bc7e8a84e7b5b8639f1add2d362
+
 	$(".create_redir").click(function(){
 			window.location.replace("create.html");
 	});
