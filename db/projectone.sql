@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.0.6
 -- http://www.phpmyadmin.net
 --
--- Host: localhost:8889
--- Generation Time: May 19, 2014 at 10:51 PM
--- Server version: 5.5.34
--- PHP Version: 5.5.10
+-- Host: localhost
+-- Generation Time: May 20, 2014 at 06:31 PM
+-- Server version: 5.5.33
+-- PHP Version: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,7 +32,7 @@ CREATE TABLE `image` (
   `title` varchar(100) NOT NULL COMMENT 'title for image',
   `desc` varchar(1000) NOT NULL COMMENT 'desc for image',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Dumping data for table `image`
@@ -53,7 +53,16 @@ INSERT INTO `image` (`id`, `link`, `title`, `desc`) VALUES
 (16, 'images/dummy/levi.jpg', 'Levi', 'Levi''s avatar'),
 (17, 'images/dummy/Sasha.jpg', 'Sasha', 'Sasha''s avatar'),
 (18, 'images/dummy/reiner.jpg', 'Renier', 'Renier''s avatar'),
-(19, 'images/dummy/ymir.jpg', 'Ymir', 'Ymir''s avatar');
+(19, 'images/dummy/ymir.jpg', 'Ymir', 'Ymir''s avatar'),
+(20, 'images/dummy/tekkon01.jpg', 'Flying', 'Kuro and Shiro, leaping off from building to building.'),
+(21, 'images/dummy/tekkon02.jpg', 'Tekkonkinkreet OST', 'Album cover art'),
+(22, 'images/dummy/tekkon04.jpg', 'Dragon logo', 'New religion in town.'),
+(23, 'images/dummy/tekkon05.jpg', 'Kick', 'Shiro demonstrating his kick'),
+(24, 'images/dummy/fox.jpg', 'Mr. Fox', 'Leather jacket, 2014 Fall collection.'),
+(25, 'images/dummy/koala.jpg', 'Mr. Koala', 'Floral print shirt, ready for vocation.'),
+(26, 'images/dummy/monkey.jpg', 'Mr. Monkey', 'Unexplained fashion.'),
+(27, 'images/dummy/raccoon.jpg', 'Mr. Raccoon', 'Like a boss.'),
+(28, 'images/dummy/wolf.jpg', 'Mr. Wolf', 'Smooth, yet dangerous.');
 
 -- --------------------------------------------------------
 
@@ -67,7 +76,7 @@ CREATE TABLE `portfolio` (
   `title` varchar(100) NOT NULL COMMENT 'title for portfolio',
   `desc` varchar(1000) NOT NULL COMMENT 'title for the description',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `portfolio`
@@ -76,7 +85,9 @@ CREATE TABLE `portfolio` (
 INSERT INTO `portfolio` (`id`, `link`, `title`, `desc`) VALUES
 (1, 'images/dummy/pokesplash.jpg', 'Pokemon', 'Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing elit.'),
 (2, 'splashtwo.png', 'Photoshop Project', 'This was my Photoshop project from grade 13'),
-(4, 'images/dummy/mikasa.jpg', 'Attack On Titan', 'Hate dog climb leg. Shake treat bag. Chew iPad power cord. Stand in front of the computer screen. Need to chase tail chew iPad power cord cat snacks but stand in front of the computer screen. ');
+(4, 'images/dummy/mikasa.jpg', 'Attack On Titan', 'Hate dog climb leg. Shake treat bag. Chew iPad power cord. Stand in front of the computer screen. Need to chase tail chew iPad power cord cat snacks but stand in front of the computer screen. '),
+(5, 'images/dummy/tekkon03.jpg', 'Tekkonkinkreet', 'Kuro and Shiro''s adventures'),
+(6, 'images/dummy/r_panda.jpg', 'Zoo Portraits', 'Photographs of zoo animal models.');
 
 -- --------------------------------------------------------
 
@@ -115,7 +126,7 @@ CREATE TABLE `portfolio_image` (
   PRIMARY KEY (`id`),
   KEY `portfolio_id` (`portfolio_id`,`image_id`),
   KEY `image_id` (`image_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
 
 --
 -- Dumping data for table `portfolio_image`
@@ -136,7 +147,16 @@ INSERT INTO `portfolio_image` (`id`, `portfolio_id`, `image_id`) VALUES
 (13, 4, 16),
 (14, 4, 17),
 (15, 4, 18),
-(16, 4, 19);
+(16, 4, 19),
+(17, 5, 20),
+(18, 5, 21),
+(19, 5, 22),
+(20, 5, 23),
+(21, 6, 24),
+(22, 6, 25),
+(23, 6, 26),
+(24, 6, 27),
+(25, 6, 28);
 
 -- --------------------------------------------------------
 
@@ -176,7 +196,7 @@ CREATE TABLE `user_portfolio` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `portfolio_id` (`portfolio_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `user_portfolio`
@@ -184,8 +204,9 @@ CREATE TABLE `user_portfolio` (
 
 INSERT INTO `user_portfolio` (`id`, `user_id`, `portfolio_id`) VALUES
 (1, 1, 1),
-(3, 2, 2),
-(5, 1, 4);
+(5, 1, 4),
+(6, 2, 5),
+(8, 2, 6);
 
 --
 -- Constraints for dumped tables
