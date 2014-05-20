@@ -515,9 +515,11 @@ body {
 	top: 20px;
 	cursor: pointer;
 	text-align: center;
-	padding: 5%;
+	width: 100%;
 }
-
+.admindesc p {
+	padding: 0 5% !important;
+}
 .admindesc img{
 	opacity: 0.5;
 	padding: 0;

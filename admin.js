@@ -19,7 +19,7 @@ $(document).ready(function() {
 					var divId = $(this).attr("id");
 					$.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
 		        		var portfolioData = $.parseJSON(data);
-		        		$(".admindesc").append(portfolioData[divId].title+"<br>"+portfolioData[divId].desc);
+		        		$(".admindesc").append("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
 		        	});
 				}, function() {
 					$(".admindesc").empty();
@@ -38,7 +38,7 @@ $(document).ready(function() {
 		        			var divId = $(this).attr("id");
 		        			$.get("sv/image_client.php", {getimagedata:true, imageid:divId}, function(data){
 				        		var portfolioData = $.parseJSON(data);
-				        		$(".admindesc").append(portfolioData[divId].title+"<br>"+portfolioData[divId].desc);
+				        		$(".admindesc").append("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
 				        	});
 		        		}, function() {
 		        			$(".admindesc").empty();
