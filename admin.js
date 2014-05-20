@@ -35,7 +35,11 @@ $(document).ready(function() {
 		        			$(".adminimagewrap").append("<div class='adminportfolioimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'></div>");
 		        		});
 		        		$(".adminportfolioimage").hover(function() {
-		        			/* Stuff to do when the mouse enters the element */
+		        			var divId = $(this).attr("id");
+		        			$.get("sv/image_client.php", {getimagedata:true, imageid:divId}, function(data){
+				        		var portfolioData = $.parseJSON(data);
+				        		$(".admindesc").append(portfolioData[divId].title+"<br>"+portfolioData[divId].desc);
+				        	});
 		        		}, function() {
 		        			$(".admindesc").empty();
 		        		});

@@ -8,7 +8,18 @@ if(isset($_GET['portfolioimages'])){
 		echo json_encode($allImages);
 	}
 	else{
-		echo "shit";
+		echo "failed";
+	}
+}
+
+if(isset($_GET['getimagedata'])){
+	if(isset($_GET['imageid'])){
+		$imageClass = new Image();
+		$allImages = $imageClass->get_all_images_by_id($_GET['imageid']);
+		echo json_encode($allImages);
+	}
+	else{
+		echo "failed";
 	}
 }
 
