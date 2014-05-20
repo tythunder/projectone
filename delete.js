@@ -20,88 +20,90 @@ $(document).ready(function() {
     });
 
     //code for create
-    $(".createcontainer").css({
+    $(".deletecontainer").css({
         width: window.innerWidth,
         height: window.innerHeight
     });
 
     $(window).resize(function() {
-        $(".createcontainer").css({
+        $(".deletecontainer").css({
             width: window.innerWidth,
             height: window.innerHeight
         });
     });
-	$(".logout_btn").click(function(){
-		$.post("sv/sessions.php", {destroy:true}, function(){
-			window.location.replace("index.html");
-		});
-	});
-	//code for menu buttons
-	$(".home_redir").click(function(){
-		window.location.replace("admin.html");
-	});	
-	$(".create_redir").click(function(){
-			window.location.replace("create.html");
-	});
-	$(".edit_redir").click(function(){
-		window.location.replace("edit.html");
-	});
-	$(".delete_redir").click(function(){
-		window.location.replace("delete.html");
-	});
-	$(".search_redir").click(function(){
-		window.location.replace("search.html");
-	});
+
+	//code for logout button
+    $(".logout_btn").click(function(){
+        $.post("sv/sessions.php", {destroy:true}, function(){
+            window.location.replace("index.html");
+        });
+    });
+    //code for menu buttons
+    $(".home_redir").click(function(){
+        window.location.replace("admin.html");
+    }); 
+    $(".create_redir").click(function(){
+            window.location.replace("create.html");
+    });
+    $(".edit_redir").click(function(){
+        window.location.replace("edit.html");
+    });
+    $(".delete_redir").click(function(){
+        window.location.replace("delete.html");
+    });
+    $(".search_redir").click(function(){
+        window.location.replace("search.html");
+    });
 
     // this opens modal for image upload
-    $(".createimageedit").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(0.8)");
-        $(".createoverlay").addClass("showcreateoverlay");
+    $(".deleteimageedit").click(function() {
+        $(".deleteontainer").css("-webkit-transform", "scale(0.8)");
+        $(".deleteoverlay").addClass("showcreateoverlay");
         $(".uploadmodal").addClass("showuploadmodal");
     });
 
     // this is to close upload modal
     $(".uploadaccept").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass("showcreateoverlay");
+        $(".deleteontainer").css("-webkit-transform", "scale(1)");
+        $(".deleteoverlay").removeClass("showcreateoverlay");
         $(".uploadmodal").removeClass("showuploadmodal");
 		$(".uploadmodal").load("modal_create");
     });
 
     $(".uploadcancel").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass("showcreateoverlay");
+        $(".deleteontainer").css("-webkit-transform", "scale(1)");
+        $(".deleteoverlay").removeClass("showcreateoverlay");
         $(".uploadmodal").removeClass("showuploadmodal");
     });
 
     // this opens modal for the description
-    $(".createdesc").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(0.8)");
-        $(".createoverlay").addClass("showcreateoverlay");
+    $(".deletedesc").click(function() {
+        $(".deleteontainer").css("-webkit-transform", "scale(0.8)");
+        $(".deleteoverlay").addClass("showcreateoverlay");
         $(".descmodal").addClass("showdescmodal");
     });
 
     // this is to close upload modal
     $(".descaccept").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass("showcreateoverlay");
+        $(".deleteontainer").css("-webkit-transform", "scale(1)");
+        $(".deleteoverlay").removeClass("showcreateoverlay");
         $(".descmodal").removeClass("showdescmodal");
     });    
 
     $(".desccancel").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass("showcreateoverlay");
+        $(".deleteontainer").css("-webkit-transform", "scale(1)");
+        $(".deleteoverlay").removeClass("showcreateoverlay");
         $(".descmodal").removeClass("showdescmodal");
     });
 
     // code for create hovers
-    $(".createimage").hover(function() {
+    $(".deleteimage").hover(function() {
         $(this).children().children(".pictureimg").css("opacity", 1.0);
     }, function() {
         $(this).children().children(".pictureimg").css("opacity", 0.5);
     });
 
-    $(".createdescwrap").hover(function() {
+    $(".deletedescwrap").hover(function() {
         $(this).children().children(".descimg").css("opacity", 1.0);
     }, function() {
         $(this).children().children(".descimg").css("opacity", 0.5);
@@ -119,5 +121,4 @@ $(document).ready(function() {
             height: window.innerHeight
         });
     });
-
 });

@@ -34,8 +34,21 @@ $(document).ready(function() {
 			window.location.replace("index.html");
 		});
 	});
+	//code for menu buttons
+	$(".home_redir").click(function(){
+		window.location.replace("admin.html");
+	});	
 	$(".create_redir").click(function(){
 			window.location.replace("create.html");
+	});
+	$(".edit_redir").click(function(){
+		window.location.replace("edit.html");
+	});
+	$(".delete_redir").click(function(){
+		window.location.replace("delete.html");
+	});
+	$(".search_redir").click(function(){
+		window.location.replace("search.html");
 	});
 	
 	//code for menu
