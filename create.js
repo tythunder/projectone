@@ -6,18 +6,18 @@ $(document).ready(function() {
         }
         else{
             window.logged_session = $.parseJSON(s_data);
-            var portid;
-            $.get("sv/user_client.php", {userinfo:true, userid:window.logged_session.id}, function(data){
-                var userdata = $.parseJSON(data);	
+
+            $(".descaccept").click(function() {
+                var link = $(".link").val();
+                var title = $(".title").val();
+                var desc = $(".desc").val();
+                $.get("sv/portfolio_client.php", {newportfolio:true, link:link, title:title, desc:desc, userid:window.logged_session.id}, function(data){
+                    var newportfoliodata = $.parseJSON(data);
+                    console.log(newportfoliodata);
+
+                });
             });
         }
-    });
-
-    //code for menu
-    $(".menuicon").hover(function() {
-        $(this).children(".menuitem").stop().animate({width:200}, 500, "easeOutExpo");
-    }, function() {
-        $(this).children(".menuitem").stop().animate({width:0}, 500, "easeOutExpo");
     });
 
     //code for create

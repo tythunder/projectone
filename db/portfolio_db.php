@@ -59,6 +59,20 @@ class Portfolio_db{
 		return $array;
 	}
 
+	function insert_new_portfolio($link, $title, $desc, $user_id){
+		$query = "INSERT INTO portfolio VALUES (DEFAULT, '$link', '$title', '$desc')";
+		$result = mysqli_query($this->dbcon, $query);
+		if ($result === TRUE) {
+			$id = mysqli_insert_id($this->dbcon);
+			$query = "INSERT INTO user_portfolio VALUES (DEFAULT, '$user_id','$id')";
+			$result = mysqli_query($this->dbcon, $query);
+			if ($result === TRUE) {
+				return $id;
+			}
+		}
+		return FALSE;
+	}
+
 	function set_portfolio_id($id){
 		if(is_numeric($id)){
 			$this->portfolio_id = $id;

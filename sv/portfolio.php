@@ -16,6 +16,12 @@ class Portfolio{
 
 		return $portfolio;
 	}
+
+	function create_new_portfolio($link, $title, $desc, $user_id){
+		$newportfolio = $this->portfolioDB->insert_new_portfolio($link, $title, $desc, $user_id);
+
+		return $newportfolio;
+	}
 }
 
 ?>
