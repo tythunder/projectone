@@ -11,7 +11,7 @@ $(document).ready(function() {
                 var userdata = $.parseJSON(data);
                 $.each(userdata.portfolio, function(index, value){
                     portid = value.id;
-                    $(".deleteimagewrap").append("<div class='deleteimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='deleteimageedit'>"+value.title+"<img class='delportfolioimg' src='images/icons/picture.png' /></div></div>");
+                    $(".deleteimagewrap").append("<div class='deleteimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='deleteimageedit'>"+value.title+"<img class='delportfolioimg' src='images/icons/del_sm.png' /></div></div>");
                 });
 
                 $(".deleteimage").hover(function() {
@@ -31,7 +31,7 @@ $(document).ready(function() {
                         var portfolioData = $.parseJSON(data);
                         $(".deleteimagewrap").empty();
                         $.each(portfolioData.image, function(index, value){
-                            $(".deleteimagewrap").append("<div class='deleteportfolioimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'><img class='delpictureimg' src='images/icons/picture.png' /></div>");
+                            $(".deleteimagewrap").append("<div class='deleteportfolioimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'><img class='delpictureimg' src='images/icons/del_sm.png' /></div>");
                         });
                         $(".deleteportfolioimage").hover(function() {
                             var divId = $(this).attr("id");
