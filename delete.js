@@ -18,7 +18,7 @@ $(document).ready(function() {
                     var divId = $(this).attr("id");
                     $.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
                         var portfolioData = $.parseJSON(data);
-                        $(".deletedesc").html("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
+                        $(".deletedesc").html("<h1>"+portfolioData[divId].title+"</h1><hr><p>"+portfolioData[divId].desc+"</p>");
                         $(".deletedescwrap").css({
                             "background": "url("+portfolioData[divId].link+") no-repeat center",
                             "-webkit-background-size": "cover",
