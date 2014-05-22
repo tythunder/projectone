@@ -32,19 +32,19 @@ $(document).ready(function() {
                         });
                     });
                 });
-                
-                $(".deleteimage").click(function() {
-                    console.log($(this).attr("id"));
-                });      
+
+                $(".deleteimage").click(function(){
+                    var divId = $(this).attr("id");
+                    console.log(divId);
+                    $.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
+                        var portfolioData = $.parseJSON(data);
+                        $.each(portfolioData.image, function(index, value){
+                            console.log(value.id);
+                        });
+                    });
+                });   
             });           
         }
-    });
-
-    //code for menu
-    $(".menuicon").hover(function() {
-        $(this).children(".menuitem").stop().animate({width:200}, 500, "easeOutExpo");
-    }, function() {
-        $(this).children(".menuitem").stop().animate({width:0}, 500, "easeOutExpo");
     });
 
     //code for create

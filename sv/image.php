@@ -29,6 +29,7 @@ class Image{
 
 		return $image;
 	}
+
 }
 
 ?>

@@ -46,6 +46,7 @@ class Image_db{
 		return $array;
 	}
 
+
 	function insert_new_image($link, $title, $desc, $portfolio_id){
 		$query = "INSERT INTO image VALUES (DEFAULT, '$link', '$title', '$desc')";
 		$result = mysqli_query($this->dbcon, $query);
