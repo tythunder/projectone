@@ -11,39 +11,31 @@ $(document).ready(function() {
                 var userdata = $.parseJSON(data);
                 $.each(userdata.portfolio, function(index, value){
                     portid = value.id;
-                    $(".deleteimagewrap").append("<div class='deleteimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='deleteimageedit'>"+value.title+"<img class='delportfolioimg' src='images/icons/del_sm.png' /></div></div>");
+                    $(".deleteimagewrap").append("<div class='deleteimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='deleteimageedit'><img class='delportfolioimg' src='images/icons/del_sm.png' /></div></div>");
                 });
 
                 $(".deleteimage").hover(function() {
                     var divId = $(this).attr("id");
                     $.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
                         var portfolioData = $.parseJSON(data);
-                        $(".deletedesc").append("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
+                        $(".deletedesc").html("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
+                        $(".deletedescwrap").css({
+                            "background": "url("+portfolioData[divId].link+") no-repeat center",
+                            "-webkit-background-size": "cover",
+                            "-moz-background-size": "cover",
+                            "-o-background-size": "cover",
+                            "background-size": "cover",
+                            "box-sizing":"border-box",
+                            "-moz-box-sizing":"border-box",
+                            "-webkit-box-sizing":"border-box",
+                            "border": "1px solid rgba(255,255,255, 0.5)"
+                        });
                     });
-                }, function() {
-                    $(".deletedesc").empty();
                 });
-
-                $(".deleteimage").click(function(){
-                    $(".deletedesc").empty();
-                    var divId = $(this).attr("id");
-                    $.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
-                        var portfolioData = $.parseJSON(data);
-                        $(".deleteimagewrap").empty();
-                        $.each(portfolioData.image, function(index, value){
-                            $(".deleteimagewrap").append("<div class='deleteportfolioimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"'><img class='delpictureimg' src='images/icons/del_sm.png' /></div>");
-                        });
-                        $(".deleteportfolioimage").hover(function() {
-                            var divId = $(this).attr("id");
-                            $.get("sv/image_client.php", {getimagedata:true, imageid:divId}, function(data){
-                                var portfolioData = $.parseJSON(data);
-                                $(".deletedesc").append("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
-                            });
-                        }, function() {
-                            $(".deletedesc").empty();
-                        });
-                    });
-                });         
+                
+                $(".deleteimage").click(function() {
+                    console.log($(this).attr("id"));
+                });      
             });           
         }
     });
