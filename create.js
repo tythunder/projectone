@@ -14,7 +14,21 @@ $(document).ready(function() {
                 $.get("sv/portfolio_client.php", {newportfolio:true, link:link, title:title, desc:desc, userid:window.logged_session.id}, function(data){
                     var newportfolioid = $.parseJSON(data);
                     $(".createimagewrap").append("<div class='createimage'><div class='createimageedit'><img class='pictureimg' src='images/icons/picture.png' /></div></div>");
-                        
+                    $.get("sv/image_client.php", {portfolioimages:true, portfolioid:newportfolioid}, function(data){
+                        var portfolioData = $.parseJSON(data);
+                        $(".createdesc").append("<p>"+portfolioData[newportfolioid].title+"<br>"+portfolioData[newportfolioid].desc+"</p>");
+                        $(".createdescwrap").css({
+                            "background": "url("+portfolioData[newportfolioid].link+") no-repeat center",
+                            "-webkit-background-size": "cover",
+                            "-moz-background-size": "cover",
+                            "-o-background-size": "cover",
+                            "background-size": "cover",
+                            "box-sizing":"border-box",
+                            "-moz-box-sizing":"border-box",
+                            "-webkit-box-sizing":"border-box",
+                            "border": "1px solid rgba(255,255,255, 0.5)"
+                        });
+                    });
                     //hover for upload modal
                     $(".createimage").hover(function() {
                         $(this).children().children(".pictureimg").css("opacity", 1.0);
@@ -38,7 +52,7 @@ $(document).ready(function() {
                             var newimageid = $.parseJSON(data);
                             $.get("sv/image_client.php", {getimagedata:true, imageid:newimageid}, function(data){
                                 var portfolioData = $.parseJSON(data);
-                                $(".createimagewrap").append("<div class='createimage' style='background: url("+portfolioData[newimageid].link+") no-repeat center; "+backgroundstyles+"'></div>");
+                                $(".createimagewrap").append("<div class='createimage' style='background: url("+portfolioData[newimageid].link+") no-repeat center; "+backgroundstyles+"'><div class='createimageedit'>"+portfolioData[newimageid].title+"</div></div>");
                             });
                         });
                         $(".createcontainer").css("-webkit-transform", "scale(1)");
