@@ -20,11 +20,19 @@ $(document).ready(function() {
 					var divId = $(this).attr("id");
 					$.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
 		        		var portfolioData = $.parseJSON(data);
-
-		        		$(".admindesc").append("<h1>"+portfolioData[divId].title+"</h1><hr><p>"+portfolioData[divId].desc+"</p>");
-		        	});
-				}, function() {
-					$(".admindesc").empty();
+		        		$(".admindesc").html("<h1>"+portfolioData[divId].title+"</h1><hr><p>"+portfolioData[divId].desc+"</p>");				
+							$(".admindescwrap").css({
+									"background": "url("+portfolioData[divId].link+") no-repeat center",
+									"-webkit-background-size": "cover",
+									"-moz-background-size": "cover",
+									"-o-background-size": "cover",
+									"background-size": "cover",
+									"box-sizing":"border-box",
+									"-moz-box-sizing":"border-box",
+									"-webkit-box-sizing":"border-box",
+									"border": "1px solid rgba(255,255,255, 0.5)"
+								});			        	
+					});
 				});
 
 				$(".adminimage").click(function(){
@@ -41,6 +49,17 @@ $(document).ready(function() {
 		        			$.get("sv/image_client.php", {getimagedata:true, imageid:divId}, function(data){
 				        		var portfolioData = $.parseJSON(data);
 				        		$(".admindesc").append("<h1>"+portfolioData[divId].title+"</h1><hr><p>"+portfolioData[divId].desc+"</p>");
+								$(".admindescwrap").css({
+									"background": "url("+portfolioData[divId].link+") no-repeat center",
+									"-webkit-background-size": "cover",
+									"-moz-background-size": "cover",
+									"-o-background-size": "cover",
+									"background-size": "cover",
+									"box-sizing":"border-box",
+									"-moz-box-sizing":"border-box",
+									"-webkit-box-sizing":"border-box",
+									"border": "1px solid rgba(255,255,255, 0.5)"
+								});								
 				        	});
 		        		}, function() {
 		        			$(".admindesc").empty();
