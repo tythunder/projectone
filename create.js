@@ -1,4 +1,45 @@
 $(document).ready(function() {
+
+    function ajaxFileUpload()
+    {
+        $("#loading")
+        .ajaxStart(function(){
+            $(this).show();
+        })
+        .ajaxComplete(function(){
+            $(this).hide();
+        });
+
+        $.ajaxFileUpload
+        (
+            {
+                url:"doajaxfileupload.php",
+                secureuri:false,
+                fileElementId:"fileToUpload",
+                dataType: "json",
+                data:{name:"logan", id:"id"},
+                success: function (data, status)
+                {
+                    if(typeof(data.error) != "undefined")
+                    {
+                        if(data.error != "")
+                        {
+                            alert(data.error);
+                        }else
+                        {
+                            alert(data.msg);
+                        }
+                    }
+                },
+                error: function (data, status, e)
+                {
+                    alert(e);
+                }
+            }
+        )
+        return false;
+    }
+
     var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
     $.get("sv/sessions.php", function(s_data){
         if(s_data == "log_error"){
