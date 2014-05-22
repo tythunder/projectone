@@ -17,6 +17,14 @@ class Portfolio{
 		return $portfolio;
 	}
 
+	function delete_current_portfolio($id){
+		$this->portfolioDB->set_portfolio_id($id);
+
+		$portfolio = $this->portfolioDB->delete_portfolio_by_id();
+		
+		return $portfolio;
+	}
+
 }
 
 ?>

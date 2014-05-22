@@ -23,4 +23,15 @@ if(isset($_GET['getimagedata'])){
 	}
 }
 
+if(isset($_GET['deleteimage'])){
+	if(isset($_GET['imageid'])){
+		$imageClass = new Image();
+		$allImages = $imageClass->delete_all_images_by_id($_GET['imageid']);
+		echo json_encode($allImages);
+	}
+	else{
+		echo "failed";
+	}
+}
+
 ?>

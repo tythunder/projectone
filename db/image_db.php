@@ -33,6 +33,11 @@ class Image_db{
 		return $array;
 	}
 
+	function delete_image_by_id(){
+		$query = "DELETE FROM image WHERE id = ".$this->image_id;
+		$result = mysqli_query($this->dbcon, $query);
+	}
+
 	function get_images_by_portfolio_id(){
 		$query = "SELECT image.id, image.link, image.title, image.desc FROM image
 				 LEFT JOIN portfolio_image ON portfolio_image.image_id = image.id

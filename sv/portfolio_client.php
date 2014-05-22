@@ -24,4 +24,15 @@ if(isset($_GET['newimage'])){
 	}
 }
 
+if(isset($_GET['deleteportfolio'])){
+	if(isset($_GET['portfolioid'])){
+		$portfolioClass = new Portfolio_db();
+		$deleteCurrentPortfolio = $portfolioClass->delete_portfolio_by_id($_GET['portfolioid']);
+		echo json_encode($deleteCurrentPortfolio);
+	}
+	else{
+		echo "failed";
+	}
+}
+
 ?>

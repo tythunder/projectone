@@ -30,6 +30,13 @@ class Image{
 		return $image;
 	}
 
+	function delete_all_images_by_id($id){
+		$this->imageDB->set_image_id($id);
+		$image = $this->imageDB->delete_image_by_id();
+
+		return $image;
+	}
+
 }
 
 ?>

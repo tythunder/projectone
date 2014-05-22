@@ -35,13 +35,18 @@ $(document).ready(function() {
 
                 $(".deleteimage").click(function(){
                     var divId = $(this).attr("id");
-                    console.log(divId);
                     $.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
                         var portfolioData = $.parseJSON(data);
                         $.each(portfolioData.image, function(index, value){
-                            console.log(value.id);
+                            $.get("sv/image_client.php", {deleteimage:true, imageid:value.id}, function() {
+                            });
+                        });
+                        $.get("sv/portfolio_client.php", {deleteportfolio:true, portfolioid:divId}, function() {
                         });
                     });
+                    $(this).remove();
+                    $(".deletedescwrap").empty();
+                    $(".deletedescwrap").css("background", "transparent");
                 });   
             });           
         }

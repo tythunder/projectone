@@ -33,6 +33,11 @@ class Portfolio_db{
 		return $array;
 	}
 
+	function delete_portfolio_by_id($id){
+		$query = "DELETE FROM portfolio WHERE id = '$id'";
+		$result = mysqli_query($this->dbcon, $query);
+	}
+
 	function get_portfolios_by_user_id(){
 		$query = "SELECT portfolio.id, portfolio.link, portfolio.title, portfolio.desc FROM portfolio
 				 LEFT JOIN user_portfolio ON user_portfolio.portfolio_id = portfolio.id
