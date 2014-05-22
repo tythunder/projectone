@@ -12,14 +12,15 @@ $(document).ready(function() {
 				var userdata = $.parseJSON(data);
 				$.each(userdata.portfolio, function(index, value){
 					portid = value.id;
-					$(".adminimagewrap").append("<div class='adminimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='adminimageedit'>"+value.title+"</div></div>");
+					$(".adminimagewrap").append("<div class='adminimage' id='"+value.id+"' style='background: url("+value.link+") no-repeat center; "+backgroundstyles+"><div class='adminimageedit'></div></div>");
+					
 				});
 
 				$(".adminimage").hover(function() {
 					var divId = $(this).attr("id");
 					$.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
 		        		var portfolioData = $.parseJSON(data);
-		        		$(".admindesc").append("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
+		        		$(".admindesc").append("<h1>"+portfolioData[divId].title+"</h1><hr><p>"+portfolioData[divId].desc+"</p>");
 		        	});
 				}, function() {
 					$(".admindesc").empty();
@@ -38,7 +39,7 @@ $(document).ready(function() {
 		        			var divId = $(this).attr("id");
 		        			$.get("sv/image_client.php", {getimagedata:true, imageid:divId}, function(data){
 				        		var portfolioData = $.parseJSON(data);
-				        		$(".admindesc").append("<p>"+portfolioData[divId].title+"<br>"+portfolioData[divId].desc+"</p>");
+				        		$(".admindesc").append("<h1>"+portfolioData[divId].title+"</h1><hr><p>"+portfolioData[divId].desc+"</p>");
 				        	});
 		        		}, function() {
 		        			$(".admindesc").empty();
