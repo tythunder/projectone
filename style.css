@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,300,200,100);
+
 html {
 	background-color: #0AC2D2;
 	width: 100%;
@@ -570,14 +572,23 @@ body {
 }
 
 .admindesc {
+	background-color: white !important;
 	position: absolute;
 	top: 20px;
 	cursor: pointer;
 	text-align: center;
 	width: 100%;
 }
+.admindesc h1{
+	margin-bottom: 0.3em;
+}
+.admindesc hr{
+	width: 60%;
+	margin-bottom: 1.4em;
+}
 .admindesc p {
 	padding: 0 5% !important;
+	font-size: 1.1em !important;
 }
 .admindesc img{
 	opacity: 0.5;
