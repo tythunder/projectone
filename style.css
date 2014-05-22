@@ -584,6 +584,9 @@ body {
 }
 .admindesc hr{
 	width: 60%;
+	background-color:#000;
+	height: 3px;
+	border: 0;
 	margin-bottom: 1.4em;
 }
 .admindesc p {

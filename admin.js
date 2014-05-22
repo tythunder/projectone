@@ -20,6 +20,7 @@ $(document).ready(function() {
 					var divId = $(this).attr("id");
 					$.get("sv/image_client.php", {portfolioimages:true, portfolioid:divId}, function(data){
 		        		var portfolioData = $.parseJSON(data);
+
 		        		$(".admindesc").append("<h1>"+portfolioData[divId].title+"</h1><hr><p>"+portfolioData[divId].desc+"</p>");
 		        	});
 				}, function() {
