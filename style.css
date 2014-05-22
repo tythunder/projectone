@@ -46,13 +46,12 @@ body {
 	max-width: 100%;
 	margin: 0;
 	padding: 0;
+	opacity: 0.6 !important;
 }
 .menuicon img:hover {
-	-webkit-filter: invert(100%);
-	-moz-filter: invert(100%);
-	-ms-filter: invert(100%);
-	-o-filter: invert(100%);
-	filter: invert(100%);
+	opacity: 1 !important;
+	-webkit-filter: invert(100%);  
+	-webkit-transition: .3s ease-in-out;
 }
 
 /* CREATE PAGE STYLES*/
@@ -82,7 +81,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	-webkit-transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
   	transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -102,7 +101,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	background: rgba(0,0,0,0.1);
 }
 
@@ -128,7 +127,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 
 }
 
@@ -164,7 +163,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	transition: all 0.3s;
 }
 
@@ -214,7 +213,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	transition: all 0.3s;
 }
 
@@ -259,7 +258,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	-webkit-transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
   	transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -279,7 +278,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	background: rgba(0,0,0,0.1);
 }
 
@@ -295,7 +294,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	background: rgba(0,0,0,0.1);
 }
 .deleteimageedit {
@@ -320,35 +319,53 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 }
 
 .deletedesc {
+	background-color: rgba(255,255,255, 0.9) !important;
 	position: absolute;
-	top: 20px;
+	top: 0;
 	cursor: pointer;
 	text-align: center;
 	width: 100%;
 }
+
+.deletedesc h1{
+	margin-bottom: 0.3em;
+}
+.deletedesc hr{
+	width: 60%;
+	background-color:#000;
+	height: 3px;
+	border: 0;
+	margin-bottom: 1.4em;
+}
 .deletedesc p {
 	padding: 0 5% !important;
+	font-size: 1.1em !important;
 }
+
 .deletedesc img{
 	opacity: 0.5;
 	padding: 0;
 	margin: 0;
 	display: block;
 }
+
 .delportfolioimg, .delpictureimg{
 	display: inline-block;
 	position: absolute;
 	right: 5;
 	bottom: 5;	
+	opacity: 0.6;
+}
+.delportfolioimg:hover, .delpictureimg:hover{
 	opacity: 1;
+	-webkit-filter: invert(100%);  
+	-webkit-transition: .3s ease-in-out;
 }
-.delportfolioimg:hover.delpictureimg:hover{
-	opacity:0.5;
-}
+
 .deleteoverlay {
     position: fixed;
     width: 100%;
@@ -370,7 +387,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	-webkit-transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
   	transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -390,7 +407,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	background: rgba(0,0,0,0.1);
 }
 
@@ -406,7 +423,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	background: rgba(0,0,0,0.1);
 }
 .editimageedit {
@@ -417,7 +434,7 @@ body {
 }
 
 .editimageedit img {
-	opacity: 0.5;
+	opacity: 0.6;
 	padding: 0;
 	margin: 0;
 	display: block;
@@ -428,10 +445,12 @@ body {
 	position: absolute;
 	right: 5;
 	bottom: 5;	
-	opacity: 1;
+	opacity: 0.6;
 }
 .editportfolioimg:hover, .editpictureimg:hover{
-	opacity:0.5;
+	opacity: 1;
+	-webkit-filter: invert(100%);  
+	-webkit-transition: .3s ease-in-out;
 }
 
 .editdescwrap, {
@@ -442,19 +461,33 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 }
 
 .editdesc {
+	background-color: rgba(255,255,255, 0.9) !important;
 	position: absolute;
-	top: 20px;
+	top: 0;
 	cursor: pointer;
 	text-align: center;
 	width: 100%;
 }
+
+.editdesc h1{
+	margin-bottom: 0.3em;
+}
+.editdesc hr{
+	width: 60%;
+	background-color:#000;
+	height: 3px;
+	border: 0;
+	margin-bottom: 1.4em;
+}
 .editdesc p {
 	padding: 0 5% !important;
+	font-size: 1.1em !important;
 }
+
 .editdesc img{
 	opacity: 0.5;
 	padding: 0;
@@ -502,7 +535,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	-webkit-transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
   	transition: all 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -526,7 +559,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	background: rgba(0,0,0,0.1);
 }
 
@@ -542,7 +575,7 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 	background: rgba(0,0,0,0.1);
 }
 
@@ -568,13 +601,13 @@ body {
 	box-sizing:border-box;
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
-	border: 1px solid rgba(255,255,255, 0.5);
+	border: 1px solid #0ACAD2;
 }
 
 .admindesc {
 	background-color: rgba(255,255,255, 0.9) !important;
 	position: absolute;
-	top: 20px;
+	top: 0;
 	cursor: pointer;
 	text-align: center;
 	width: 100%;
