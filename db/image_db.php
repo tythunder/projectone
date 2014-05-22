@@ -46,6 +46,19 @@ class Image_db{
 		return $array;
 	}
 
+	function insert_new_image($link, $title, $desc, $portfolio_id){
+		$query = "INSERT INTO image VALUES (DEFAULT, '$link', '$title', '$desc')";
+		$result = mysqli_query($this->dbcon, $query);
+		if ($result === TRUE) {
+			$id = mysqli_insert_id($this->dbcon);
+			$query = "INSERT INTO portfolio_image VALUES (DEFAULT, '$portfolio_id','$id')";
+			$result = mysqli_query($this->dbcon, $query);
+			if ($result === TRUE) {
+				return $id;
+			}
+		}
+	}
+
 	function set_image_id($id){
 		if(is_numeric($id)){
 			$this->image_id = $id;
@@ -67,32 +80,5 @@ class Image_db{
 	}
 
 }
-
-/*
-$image = new Image_db();
-$all_images = $image->get_all_images();
-echo "<pre>";
-var_dump($all_images);
-echo "</pre>";
-echo "<hr />";
-
-$image->set_image_id(2);
-$set_image = $image->get_image_by_id();
-$image->show_error();
-
-echo "<pre>";
-var_dump($set_image);
-echo "</pre>";
-echo "<hr />";
-
-$image->set_portfolio_id(1);
-$images_by_portfolio_id = $image->get_images_by_portfolio_id();
-$image->show_error();
-
-echo "<pre>";
-var_dump($images_by_portfolio_id);
-echo "</pre>";
-echo "<hr />";
-*/
 
 ?>

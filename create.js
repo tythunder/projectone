@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
+    //var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
     $.get("sv/sessions.php", function(s_data){
         if(s_data == "log_error"){
             window.location.replace("index.html");
@@ -12,9 +12,44 @@ $(document).ready(function() {
                 var title = $(".title").val();
                 var desc = $(".desc").val();
                 $.get("sv/portfolio_client.php", {newportfolio:true, link:link, title:title, desc:desc, userid:window.logged_session.id}, function(data){
-                    var newportfoliodata = $.parseJSON(data);
-                    console.log(newportfoliodata);
+                    var newportfolioid = $.parseJSON(data);
+                    $(".createimagewrap").append("<div class='createimage'><div class='createimageedit'><img class='pictureimg' src='images/icons/picture.png' /></div></div>");
+                        
+                    //hover for upload modal
+                    $(".createimage").hover(function() {
+                        $(this).children().children(".pictureimg").css("opacity", 1.0);
+                    }, function() {
+                        $(this).children().children(".pictureimg").css("opacity", 0.5);
+                    });
+                    
+                    // this opens modal for image upload
+                    $(".createimageedit").click(function() {
+                        $(".createcontainer").css("-webkit-transform", "scale(0.8)");
+                        $(".createoverlay").addClass("showcreateoverlay");
+                        $(".uploadmodal").addClass("showuploadmodal");
+                    });
 
+                        // this is to close upload modal
+                    $(".uploadaccept").click(function() {
+                        
+                        var imagelink = $(".imagelink").val();
+                        var imagetitle = $(".imagetitle").val();
+                        var imagedesc = $(".imagedesc").val();
+                        $.get("sv/portfolio_client.php", {newimage:true, imagelink:imagelink, imagetitle:imagetitle, imagedesc:imagedesc, portfolioid:newportfolioid}, function(data) {
+                            console.log(newportfolioid);
+                            console.log(data);
+                            //var newimageid = $.parseJSON(data);
+                        });
+                        $(".createcontainer").css("-webkit-transform", "scale(1)");
+                        $(".createoverlay").removeClass("showcreateoverlay");
+                        $(".uploadmodal").removeClass("showuploadmodal");
+                    });
+
+                    $(".uploadcancel").click(function() {
+                        $(".createcontainer").css("-webkit-transform", "scale(1)");
+                        $(".createoverlay").removeClass("showcreateoverlay");
+                        $(".uploadmodal").removeClass("showuploadmodal");
+                    });
                 });
             });
         }
@@ -55,58 +90,19 @@ $(document).ready(function() {
 		});
 	});
 
-    // this opens modal for image upload
-    $(".createimageedit").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(0.8)");
-        $(".createoverlay").addClass("showcreateoverlay");
-        $(".uploadmodal").addClass("showuploadmodal");
-    });
-
-    // this is to close upload modal
-    $(".uploadaccept").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass("showcreateoverlay");
-        $(".uploadmodal").removeClass("showuploadmodal");
-		$(".uploadmodal").load("modal_create");
-    });
-
-    $(".uploadcancel").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass("showcreateoverlay");
-        $(".uploadmodal").removeClass("showuploadmodal");
-    });
-
     // this opens modal for the description
-    $(".createdesc").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(0.8)");
-        $(".createoverlay").addClass("showcreateoverlay");
-        $(".descmodal").addClass("showdescmodal");
-    });
+    $(".createcontainer").css("-webkit-transform", "scale(0.8)");
+    $(".createoverlay").addClass("showcreateoverlay");
 
     // this is to close upload modal
     $(".descaccept").click(function() {
         $(".createcontainer").css("-webkit-transform", "scale(1)");
         $(".createoverlay").removeClass("showcreateoverlay");
-        $(".descmodal").removeClass("showdescmodal");
+        $(".descmodal").addClass("hidedescmodal");
     });    
 
     $(".desccancel").click(function() {
-        $(".createcontainer").css("-webkit-transform", "scale(1)");
-        $(".createoverlay").removeClass("showcreateoverlay");
-        $(".descmodal").removeClass("showdescmodal");
-    });
-
-    // code for create hovers
-    $(".createimage").hover(function() {
-        $(this).children().children(".pictureimg").css("opacity", 1.0);
-    }, function() {
-        $(this).children().children(".pictureimg").css("opacity", 0.5);
-    });
-
-    $(".createdescwrap").hover(function() {
-        $(this).children().children(".descimg").css("opacity", 1.0);
-    }, function() {
-        $(this).children().children(".descimg").css("opacity", 0.5);
+        window.location.replace("admin.html");
     });
 
     //code for delete

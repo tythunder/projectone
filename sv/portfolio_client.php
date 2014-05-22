@@ -1,5 +1,6 @@
 <?php
 include("../db/portfolio_db.php");
+include("../db/image_db.php");
 
 if(isset($_GET['newportfolio'])){
 	if(isset($_GET['link']) && isset($_GET['title']) && isset($_GET['desc']) && isset($_GET['userid'])){
@@ -8,9 +9,19 @@ if(isset($_GET['newportfolio'])){
 		echo json_encode($createnewportfolio);
 	}
 	else{
-		echo "SHIT";
+		echo "failed";
 	}
 }
 
+if(isset($_GET['newimage'])){
+	if(isset($_GET['imagelink']) && isset($_GET['imagetitle']) && isset($_GET['imagedesc']) && isset($_GET['portfolioid'])){
+		$imageDBClass = new Image_db();
+		$createnewimage = $imageDBClass->insert_new_image($_GET['imagelink'], $_GET['imagetitle'], $_GET['imagedesc'], $_GET['portfolioid']);
+		echo json_encode($createnewimage);
+	}
+	else{
+		echo "failed";
+	}
+}
 
 ?>

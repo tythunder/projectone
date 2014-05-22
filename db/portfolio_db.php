@@ -70,7 +70,6 @@ class Portfolio_db{
 				return $id;
 			}
 		}
-		return FALSE;
 	}
 
 	function set_portfolio_id($id){
