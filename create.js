@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    //var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
+    var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
     $.get("sv/sessions.php", function(s_data){
         if(s_data == "log_error"){
             window.location.replace("index.html");
@@ -31,14 +31,15 @@ $(document).ready(function() {
 
                         // this is to close upload modal
                     $(".uploadaccept").click(function() {
-                        
                         var imagelink = $(".imagelink").val();
                         var imagetitle = $(".imagetitle").val();
                         var imagedesc = $(".imagedesc").val();
                         $.get("sv/portfolio_client.php", {newimage:true, imagelink:imagelink, imagetitle:imagetitle, imagedesc:imagedesc, portfolioid:newportfolioid}, function(data) {
-                            console.log(newportfolioid);
-                            console.log(data);
-                            //var newimageid = $.parseJSON(data);
+                            var newimageid = $.parseJSON(data);
+                            $.get("sv/image_client.php", {getimagedata:true, imageid:newimageid}, function(data){
+                                var portfolioData = $.parseJSON(data);
+                                $(".createimagewrap").append("<div class='createimage' style='background: url("+portfolioData[newimageid].link+") no-repeat center; "+backgroundstyles+"'></div>");
+                            });
                         });
                         $(".createcontainer").css("-webkit-transform", "scale(1)");
                         $(".createoverlay").removeClass("showcreateoverlay");
