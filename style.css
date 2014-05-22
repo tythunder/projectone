@@ -120,6 +120,7 @@ body {
     visibility: visible;
 }
 
+
 .createcontainer {
 	margin: auto;
 	width: 100%;
@@ -165,7 +166,7 @@ body {
 	display: block;
 }
 
-.createdescwrap {
+.createdescwrap, {
 	width: 25%;
 	height: 100%;
 	float: left;
@@ -174,14 +175,30 @@ body {
 	-moz-box-sizing:border-box;
 	-webkit-box-sizing:border-box;
 	border: 1px solid #0ACAD2;
-
 }
 
 .createdesc {
+	background-color: rgba(255,255,255, 0.9) !important;
 	position: absolute;
-	right: 40px;
-	top: 20px;
+	top: 0;
 	cursor: pointer;
+	text-align: center;
+	width: 100%;
+}
+
+.createdesc h1{
+	margin-bottom: 0.3em;
+}
+.createdesc hr{
+	width: 60%;
+	background-color:#000;
+	height: 3px;
+	border: 0;
+	margin-bottom: 1.4em;
+}
+.createdesc p {
+	padding: 0 5% !important;
+	font-size: 1.1em !important;
 }
 
 .createdesc img{
@@ -284,8 +301,10 @@ body {
 
 .uploadaction {
 	position: absolute;
-	bottom: 0;
-	margin: 10px;
+	bottom: 30px;
+	left: 50%;
+	width: 140px;
+	margin-left: -70px;
 }
 
 .uploadaccept {
@@ -380,8 +399,10 @@ body {
 
 .descaction {
 	position: absolute;
-	bottom: 0;
-	margin: 10px;
+	bottom: 30px;
+	left: 50%;
+	width: 140px;
+	margin-left: -70px;
 }
 
 .descaccept {

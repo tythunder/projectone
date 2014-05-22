@@ -1,4 +1,37 @@
 $(document).ready(function() {
+	
+$(".imgLink").click(function(e){
+	$.ajaxFileUpload
+	(
+				{
+					url:'upload.php', 
+					secureuri:false,
+					fileElementId:'file',
+					dataType: 'json',
+					success: function (data, status)
+	
+					{
+						if(typeof(data.error) != 'undefined')
+						{
+							if(data.error != '')
+							{
+								alert(data.error);
+							}else
+							{
+								alert(data.msg);
+							}
+						}
+					},
+					error: function (data, status, e)
+					{
+						alert(e);
+					}
+				}
+	)	
+});
+
+
+
     var backgroundstyles = "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; border: 1px solid rgba(255,255,255, 0.5);";
     $.get("sv/sessions.php", function(s_data){
         if(s_data == "log_error"){
@@ -16,7 +49,7 @@ $(document).ready(function() {
                     $(".createimagewrap").append("<div class='createimage'><div class='createimageedit'><img class='pictureimg' src='images/icons/picture.png' /></div></div>");
                     $.get("sv/image_client.php", {portfolioimages:true, portfolioid:newportfolioid}, function(data){
                         var portfolioData = $.parseJSON(data);
-                        $(".createdesc").append("<p>"+portfolioData[newportfolioid].title+"<br>"+portfolioData[newportfolioid].desc+"</p>");
+                        $(".createdesc").append("<h1>"+portfolioData[newportfolioid].title+"</h1><hr><p>"+portfolioData[newportfolioid].desc+"</p>");
                         $(".createdescwrap").css({
                             "background": "url("+portfolioData[newportfolioid].link+") no-repeat center",
                             "-webkit-background-size": "cover",
