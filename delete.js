@@ -45,7 +45,7 @@ $(document).ready(function() {
                         });
                     });
                     $(this).remove();
-                    $(".deletedescwrap").empty();
+                    $(".deletedesc").empty();
                     $(".deletedescwrap").css("background", "transparent");
                 });   
             });           
